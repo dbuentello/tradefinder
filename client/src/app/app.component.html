@@ -1,0 +1,38 @@
+<h1>
+  {{title}}
+</h1>
+
+<div *ngIf="error">
+  {{error}}
+</div>
+
+<form #f="ngForm" (ngSubmit)="search()">
+  <p>
+    <label>Symbols:</label>
+    <input type="text"
+           [(ngModel)]="searchParams.symbols"
+           [ngModelOptions]="{standalone: true}"/>
+           <!--required/>-->
+  </p>
+  <p>
+    <label>Historic:</label>
+    <input type="checkbox"
+           [(ngModel)]="searchParams.historic"
+           [ngModelOptions]="{standalone: true}"/>
+  </p>
+  <p>
+    <label>Delete existing:</label>
+    <input type="checkbox"
+           [(ngModel)]="searchParams.delete_existing"
+           [ngModelOptions]="{standalone: true}"/>
+  </p>
+  <p>
+    <button type="submit" [disabled]="!f.valid">Submit</button>
+  </p>
+</form>
+
+<div>
+  <stock-datum *ngFor="let datum of stockDatums" [stockDatum]="datum">
+  </stock-datum>
+</div>
+
