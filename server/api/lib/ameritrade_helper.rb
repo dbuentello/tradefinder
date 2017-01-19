@@ -44,7 +44,8 @@ module AmeritradeHelper
 
     stocks = []
 
-    self.get_stock_option_quote(symbol)
+    options = self.get_stock_option_quote(symbol)
+    options.each { |option| puts "#{option.to_s}" }
 
     # if stock.nil?
     #   stock_datas = nil
@@ -188,9 +189,8 @@ module AmeritradeHelper
     puts "*** getting stock option quote for #{symbol}"
     return nil if @session_id.nil? || symbol.nil?
 
-    url = "https://apis.tdameritrade.com/apps/200/OptionChain;jsessionid=#{@session_id}?source=SMAR&symbol=#{symbol}"
-        # "&expire=" + expStr +
-        "&quotes=true"
+    url = "https://apis.tdameritrade.com/apps/200/OptionChain;jsessionid=#{@session_id}?source=SMAR&symbol=#{symbol}&quotes=true"
+        # + "&expire=" + expStr
     puts "*** url: #{url}"
 
     stock_uri = URI.parse(url)
@@ -266,7 +266,69 @@ module AmeritradeHelper
   end
 
   def self.parse_option_quotes(stock_xml_doc)
-    puts "response: #{stock_xml_doc}"
+    options = []
+    # puts "response: #{stock_xml_doc}"
+
+    result = get_xml_value(stock_xml_doc, "//amtd/result")
+    return nil if result.nil? || result != "OK"
+
+    symbol = get_xml_value(stock_xml_doc, "//amtd/option-chain-results/symbol")
+    # puts "#{symbol}"
+
+    stock_xml_doc.xpath("//amtd/option-chain-results/option-date").each do |option_date|
+      # puts "  #{option_date.xpath('date').text}"
+      # puts "  #{option_date.xpath('expiration-type').text}"
+      # puts "  #{option_date.xpath('days-to-expiration').text}"
+
+      option_date.xpath('option-strike').each do |strike|
+        put = self.parse_quote_details(strike, 'put/')
+        put[:symbol] = symbol
+        put[:daysToExpiration] = option_date.xpath('days-to-expiration').text
+        put[:expiration] = option_date.xpath('date').text
+
+        call = self.parse_quote_details(strike, 'call/')
+        call[:symbol] = symbol
+        call[:daysToExpiration] = option_date.xpath('days-to-expiration').text
+        call[:expiration] = option_date.xpath('date').text
+
+        options.push(put)
+        options.push(call)
+      end
+    end
+
+    return options
+  end
+
+  def self.parse_quote_details(strike, type)
+    # puts "    #{option.xpath('option-symbol').text}"
+    # puts "    #{option.xpath('description').text}"
+    # puts "    #{option.xpath('last').text}"
+    # puts "    #{option.xpath('bid').text}"
+    # puts "    #{option.xpath('ask').text}"
+    # puts "    #{option.xpath('open-interest').text}"
+    # puts "    #{option.xpath('volume').text}"
+    # puts "    #{option.xpath('delta').text}"
+    # puts "    #{option.xpath('gamma').text}"
+    # puts "    #{option.xpath('theta').text}"
+    # puts "    #{option.xpath('vega').text}"
+    # puts "    #{option.xpath('implied-volatility').text}\n"
+
+    return {
+        :option_symbol => strike.xpath(type + 'option-symbol').text,
+        :standard_option => strike.xpath('standard-option').text,
+        :strike => strike.xpath('strike-price').text,
+        :description => strike.xpath(type + 'description').text,
+        :last => strike.xpath(type + 'last').text,
+        :bid => strike.xpath(type + 'bid').text,
+        :ask => strike.xpath(type + 'ask').text,
+        :optionInterest => strike.xpath(type + 'open-interest').text,
+        :volume => strike.xpath(type + 'volume').text,
+        :iv => strike.xpath(type + 'implied-volatility').text,
+        :delta => strike.xpath(type + 'delta').text,
+        :gamma => strike.xpath(type + 'gamma').text,
+        :theta => strike.xpath(type + 'theta').text,
+        :vega => strike.xpath(type + 'vega').text
+    }
   end
 
 
