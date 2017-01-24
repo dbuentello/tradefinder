@@ -1,0 +1,1 @@
+json.array! @volatilities, partial: 'volatilities/volatility', as: :volatility

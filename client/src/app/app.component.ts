@@ -14,6 +14,7 @@ import { StockDatum } from './model/stock-datum';
 export class AppComponent implements OnInit {
 
   title = 'Stocks';
+  status: string = '';
   data = null;
   error = null;
 
@@ -27,15 +28,75 @@ export class AppComponent implements OnInit {
     delete_existing?: boolean
   } = {};
 
+  symbols: string[] = [
+    'AAPL',
+    'AMGN',
+    'AMZN',
+    'APC',
+    'BA',
+    'BABA',
+    'BIDU',
+    'CAT',
+    'CELG',
+    'CMG',
+    'COST',
+    'CVX',
+    'DE',
+    'DIA',
+    'EEM',
+    'EFA',
+    'EOG',
+    'FB',
+    'FDX',
+    'FXE',
+    'GILD',
+    'GLD',
+    // 'GMCR',
+    'GOOGL',
+    'GS',
+    'HD',
+    'IBM',
+    'IWM',
+    'IYR',
+    // 'KMP',
+    'LMT',
+    // 'LNKD',
+    'MON',
+    //'NDX',
+    'NFLX',
+    // 'OEX',
+    'OXY',
+    'PCLN',
+    'QQQ',
+    // 'RUT',
+    'SBUX',
+    'SLB',
+    // 'SNDK',
+    // 'SPX',
+    'SPY',
+    'TIF',
+    'TLT',
+    'TSLA',
+    'V',
+    'VMW',
+    'WYNN',
+    'XLE',
+    'XLU',
+    'XOM',
+    // 'XOP',
+    'XRT',
+    'ZMH',
+  ];
+
   constructor(private http: Http) {
 
   }
 
   ngOnInit() {
-    this.getData();
+    // this.getHistoryStockData();
   }
 
-  private getData() {
+  private getHistoryStockData() {
     let params: URLSearchParams = new URLSearchParams();
     this.session_id && params.set('session_id', this.session_id);
     this.login_date && params.set('login_date', this.login_date);
@@ -72,7 +133,44 @@ export class AppComponent implements OnInit {
   }
 
   public search() {
-    this.getData();
+    this.getHistoryStockData();
+  }
+
+  public loadVolatility() {
+    let params: URLSearchParams = new URLSearchParams();
+    this.session_id && params.set('session_id', this.session_id);
+    this.login_date && params.set('login_date', this.login_date);
+    params.set('symbols', this.symbols.join(','));
+
+    this.status = 'Loading volatility...'
+    this.http.get('http://localhost:3000/volatilities.json', { search: params })
+        .map((res: Response) => res.json())
+        .subscribe(
+            (res) => {
+              // console.log('*** response:', res);
+
+              if(res.meta) {
+                this.session_id = res.meta.session_id;
+                this.login_date = res.meta.login_date;
+              }
+
+              this.status = 'Volatility loading complete.'
+
+              // this.stockDatums = [];
+              // res.data.stocks && res.data.stocks.forEach(datum => {
+              //   let datumObj: StockDatum = new StockDatum();
+              //   datumObj.accept(datum);
+              //   this.stockDatums.push(datum)
+              // });
+              //
+              // console.log('*** stock datums:', this.stockDatums);
+              //
+              // this.data = res
+            },
+            (error) => {
+              console.log('*** error:', error);
+              this.error = error
+            });
   }
 
 }

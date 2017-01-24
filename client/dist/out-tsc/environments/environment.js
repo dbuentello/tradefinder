@@ -5,4 +5,4 @@
 export var environment = {
     production: false
 };
-//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/app/js/tradefinder-app/src/environments/environment.js.map
+//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/client/src/environments/environment.js.map

@@ -42,36 +42,54 @@ module AmeritradeHelper
     # stock = self.get_cached_for_symbol(symbol) if !historic
     # puts "*** using existing stock option for #{symbol}" if !stock.nil? and !historic
 
-    stocks = []
-
     options = self.get_stock_option_quote(symbol)
-    options.each { |option| puts "#{option.to_s}" }
 
-    # if stock.nil?
-    #   stock_datas = nil
-    #   if historic
-    #     puts "*** getting historic stock #{symbol} from server"
-    #     datas = self.get_historic_stock_quote(symbol)
-    #     stock_datas = datas if !datas.nil? && datas.length
-    #   else
-    #     puts "*** getting stock #{symbol} from server"
-    #     data = self.get_stock_quote(symbol)
-    #     stock_datas = [data] if !data.nil?
-    #   end
-    #
-    #   unless stock_datas.nil?
-    #     # puts "*** got stocks #{stock_datas}"
-    #     stock_datas.each do |stock_data|
-    #       stock = self.save_stock(symbol, stock_data, params[:delete_existing])
-    #       stocks.push(stock) if stock
-    #     end
-    #   end
-    # else
-    #   stocks.push(stock)
-    # end
+    options.each do |option|
+      self.delete_stock_options(symbol)
+    end
 
-    # puts "*** returning stocks: #{stocks}"
-    return stocks
+    options.each do |option|
+      self.save_stock_option(option)
+    end
+
+    return options
+  end
+
+  def self.get_volatility(symbol, params, session_id)
+    # Figure out which vol dates that we need
+    query_dates = []
+    gap_dates = self.get_vol_gap_dates(symbol)
+
+    next_date = nil
+    gap_dates.each do |gap_date|
+      if next_date.nil? || gap_date <= next_date
+        query_dates.push(gap_date)
+        next_date = gap_date - 10
+      end
+    end
+
+    puts "query dates #{query_dates}"
+
+    # Query the API for any vol dates that we don't have
+    new_vols = []
+    query_dates.each do |query_date|
+      vols = self.get_volatility_quote(symbol, query_date)
+      new_vols = new_vols + vols
+    end
+
+    # puts "*** vols: #{new_vols.count} - #{new_vols}"
+
+    # Save the queried vol values to the DB
+    new_vols.each do |vol|
+      self.save_volatility(symbol, vol)
+      # puts "#{vol.to_s}"
+    end
+
+    # Return all vols for the last year
+    return Volatility
+               .where(symbol: symbol)
+               .where("date >= ?", (Date.today - 365))
+               .order(date: :desc)
   end
 
   def self.login(params)
@@ -189,8 +207,7 @@ module AmeritradeHelper
     puts "*** getting stock option quote for #{symbol}"
     return nil if @session_id.nil? || symbol.nil?
 
-    url = "https://apis.tdameritrade.com/apps/200/OptionChain;jsessionid=#{@session_id}?source=SMAR&symbol=#{symbol}&quotes=true"
-        # + "&expire=" + expStr
+    url = "https://apis.tdameritrade.com/apps/200/OptionChain;jsessionid=#{@session_id}?source=SMAR&symbol=#{symbol}&quotes=true&expire=A"
     puts "*** url: #{url}"
 
     stock_uri = URI.parse(url)
@@ -202,6 +219,39 @@ module AmeritradeHelper
     # Parse stock response
     stock_doc  = Nokogiri::XML(res.body)
     return self.parse_option_quotes(stock_doc)
+  end
+
+  def self.get_volatility_quote(symbol, gap_date)
+    puts "*** getting volatility quote #{symbol}"
+    return nil if @session_id.nil? || symbol.nil?
+
+    # endDate = Date.today.prev_day
+    endDate = gap_date == Date.today ? gap_date.prev_day : gap_date
+    if(endDate.wday == 0)
+      endDate = endDate.prev_day(2)
+    elsif(endDate.wday == 1)
+      endDate = endDate.prev_day(3)
+    elsif(endDate.wday == 6)
+      endDate = endDate.prev_day(1)
+    end
+
+    url = "https://apis.tdameritrade.com/apps/100/VolatilityHistory;jsessionid=#{@session_id}?source=SMAR" +
+        "&requestidentifiertype=SYMBOL" +
+        "&requestvalue=" + symbol +
+        "&intervaltype=DAILY" +
+        "&intervalduration=1" +
+        "&periodtype=DAY" +
+        "&period=10" +
+        "&enddate=" + endDate.strftime("%Y%m%d") +
+        "&daystoexpiration=30" +
+        "&volatilityhistorytype=I" +
+        "&surfacetypeidentifier=DELTA" +
+        "&surfacetypevalue=50";
+
+    puts "*** url: #{url}"
+
+    bytes = self.query_binary_api(url)
+    return self.parse_volatility_quotes(bytes)
   end
 
 
@@ -276,6 +326,8 @@ module AmeritradeHelper
     # puts "#{symbol}"
 
     stock_xml_doc.xpath("//amtd/option-chain-results/option-date").each do |option_date|
+      next if option_date.xpath('expiration-type').text != 'R'
+
       # puts "  #{option_date.xpath('date').text}"
       # puts "  #{option_date.xpath('expiration-type').text}"
       # puts "  #{option_date.xpath('days-to-expiration').text}"
@@ -314,14 +366,14 @@ module AmeritradeHelper
     # puts "    #{option.xpath('implied-volatility').text}\n"
 
     return {
-        :option_symbol => strike.xpath(type + 'option-symbol').text,
-        :standard_option => strike.xpath('standard-option').text,
+        # :option_symbol => strike.xpath(type + 'option-symbol').text,
+        # :standard_option => strike.xpath('standard-option').text,
         :strike => strike.xpath('strike-price').text,
         :description => strike.xpath(type + 'description').text,
         :last => strike.xpath(type + 'last').text,
         :bid => strike.xpath(type + 'bid').text,
         :ask => strike.xpath(type + 'ask').text,
-        :optionInterest => strike.xpath(type + 'open-interest').text,
+        # :optionInterest => strike.xpath(type + 'open-interest').text,
         :volume => strike.xpath(type + 'volume').text,
         :iv => strike.xpath(type + 'implied-volatility').text,
         :delta => strike.xpath(type + 'delta').text,
@@ -364,6 +416,49 @@ module AmeritradeHelper
         :percentChange => get_xml_value(stock_xml_doc, "//amtd/quote-list/quote/change-percent")
     }
   end
+
+  def self.parse_volatility_quotes(bytes)
+    idx = 0
+    # puts "*** response: #{bytes}"
+
+    # puts "*** symbol count: #{self.get_integer(bytes[idx,4])}"
+    symbol_len = self.get_integer(bytes[idx += 4,2])
+    # puts "*** symbol length: #{symbol_len}"
+    symbol = self.get_string(bytes[idx += 2,symbol_len])
+    # puts "*** symbol: #{symbol}"
+    error_code = self.get_integer(bytes[idx += symbol_len,1])
+    # puts "*** error code: #{error_code}"
+    bar_count = self.get_integer(bytes[idx += 1,4])
+    # puts "*** bar count: #{bar_count}"
+
+    vols = []
+    if bar_count.nil? || !(bar_count.is_a? Numeric)
+      puts "*** Error getting volatility"
+      return vols
+    end
+
+    data_idx = idx += 4
+    bar_count.times do |i|
+      vol = self.get_float(bytes[data_idx,4])
+      # puts "\n*** vol: #{bytes[data_idx,4]} #{vol}"
+      data_idx += 4
+
+      date = self.get_timestamp(bytes[data_idx,8])
+      # puts "*** timestamp: #{bytes[data_idx,8]} #{date}"
+      data_idx += 8
+
+      vols.push(
+          {
+              :symbol => symbol,
+              :date => date,
+              :vol => vol
+          }
+      )
+    end
+
+    return vols
+  end
+
 
 
   #
@@ -421,6 +516,52 @@ module AmeritradeHelper
     return nil
   end
 
+  def self.save_stock_option(option_data)
+    unless option_data.nil?
+      option = StockOption.new(option_data)
+      option.save
+      return option
+    end
+
+    return nil
+  end
+
+  def self.delete_stock_options(symbol)
+    StockOption
+        .where(symbol: symbol)
+        .destroy_all
+  end
+
+  def self.save_volatility(symbol, vol_data)
+    unless vol_data.nil?
+      Volatility
+          .where(symbol: symbol)
+          .where("date >= ?", vol_data[:date].beginning_of_day)
+          .where("date <= ?", vol_data[:date].end_of_day)
+          .destroy_all
+
+      vol = Volatility.new(vol_data)
+      vol.save
+      return vol
+    end
+
+    return nil
+  end
+
+  def self.get_vol_gap_dates(symbol)
+    gap_dates = []
+    weekdays = self.get_prev_year_weekdays
+    weekdays.each do |wd|
+      existing = Volatility
+                     .where(symbol: symbol)
+                     .where("date >= ?", wd.beginning_of_day)
+                     .where("date <= ?", wd.end_of_day)
+      gap_dates.push(wd) if existing.nil? || existing.length == 0
+    end
+    # puts "gap dates: #{gap_dates}"
+    return gap_dates
+  end
+
 
   #
   # UTILITIES
@@ -452,6 +593,35 @@ module AmeritradeHelper
     return date1.year == date2.year &&
         date1.mon == date2.mon &&
         date1.mday == date2.mday
+  end
+
+  def self.get_prev_year_weekdays()
+    date = Date.today
+    weekdays = []
+
+    365.times do |i|
+      if(date.wday >=1 && date.wday <= 5 && !self.is_holiday(date)) # 0 = Sunday
+        weekdays.push(date)
+      end
+      date = date.prev_day
+    end
+
+    # weekdays.each do |wd|
+    #   puts "#{wd.to_s}\n"
+    # end
+
+    return weekdays
+  end
+
+  def self.is_holiday(date)
+    if (date == Date.parse('20160101') || date == Date.parse('20160118') || date == Date.parse('20160215') || date == Date.parse('20160325') ||
+        date == Date.parse('20160530') || date == Date.parse('20160704') || date == Date.parse('20160905') || date == Date.parse('20161124')  ||
+        date == Date.parse('20161226') || date == Date.parse('20170102') || date == Date.parse('20170116') || date == Date.parse('20170220') ||
+        date == Date.parse('20170414') || date == Date.parse('20170529') || date == Date.parse('20170704') || date == Date.parse('20170904') ||
+        date == Date.parse('20171123') || date == Date.parse('20171225'))
+      return true
+    end
+    # return false
   end
 
 end

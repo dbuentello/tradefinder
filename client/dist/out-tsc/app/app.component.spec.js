@@ -27,4 +27,4 @@ describe('AppComponent', function () {
         expect(compiled.querySelector('h1').textContent).toContain('app works!');
     }));
 });
-//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/app/js/tradefinder-app/src/app/app.component.spec.js.map
+//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/client/src/app/app.component.spec.js.map

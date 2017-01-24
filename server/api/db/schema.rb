@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117015323) do
+ActiveRecord::Schema.define(version: 20170123033038) do
 
   create_table "stock_options", force: :cascade do |t|
     t.string   "symbol"
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(version: 20170117015323) do
     t.decimal  "close"
     t.integer  "volume"
     t.datetime "date"
+  end
+
+  create_table "volatilities", force: :cascade do |t|
+    t.string   "symbol"
+    t.decimal  "vol"
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

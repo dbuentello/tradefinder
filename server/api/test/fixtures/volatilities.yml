@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  symbol: MyString
+  vol: 9.99
+  date: 
+
+two:
+  symbol: MyString
+  vol: 9.99
+  date: 

@@ -13,7 +13,8 @@ class StockOptionsController < ApplicationController
 
     if !params[:symbols].nil?
       syms = params[:symbols].split(",")
-      @stock_options = StockOption.where(symbol: syms)
+      # @stock_options = StockOption.where(symbol: syms)
+      @stock_options = []
 
       login_response = AmeritradeHelper.login(params)
       puts "*** login response #{login_response}"

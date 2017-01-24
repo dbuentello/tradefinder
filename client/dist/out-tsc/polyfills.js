@@ -14,4 +14,4 @@ import 'core-js/es6/set';
 import 'core-js/es6/reflect';
 import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
-//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/app/js/tradefinder-app/src/polyfills.js.map
+//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/client/src/polyfills.js.map

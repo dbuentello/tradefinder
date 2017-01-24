@@ -34,4 +34,4 @@ export var AppModule = (function () {
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/app/js/tradefinder-app/src/app/app.module.js.map
+//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/client/src/app/app.module.js.map

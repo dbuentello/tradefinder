@@ -6,6 +6,10 @@
   {{error}}
 </div>
 
+<button style="margin-bottom: 1rem; margin-top: 1rem" (click)="loadVolatility()">Load volatility</button>
+
+<div *ngIf="status" style="margin-bottom: 2rem;">{{status}}</div>
+
 <form #f="ngForm" (ngSubmit)="search()">
   <p>
     <label>Symbols:</label>

@@ -1,0 +1,32 @@
+<%= form_for(volatility) do |f| %>
+  <% if volatility.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(volatility.errors.count, "error") %> prohibited this volatility from being saved:</h2>
+
+      <ul>
+      <% volatility.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :symbol %>
+    <%= f.text_field :symbol %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vol %>
+    <%= f.text_field :vol %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.text_field :date %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -15,17 +15,77 @@ export var AppComponent = (function () {
     function AppComponent(http) {
         this.http = http;
         this.title = 'Stocks';
+        this.status = '';
         this.data = null;
         this.error = null;
         this.session_id = null;
         this.login_date = null;
         this.stockDatums = [];
         this.searchParams = {};
+        this.symbols = [
+            'AAPL',
+            'AMGN',
+            'AMZN',
+            'APC',
+            'BA',
+            'BABA',
+            'BIDU',
+            'CAT',
+            'CELG',
+            'CMG',
+            'COST',
+            'CVX',
+            'DE',
+            'DIA',
+            'EEM',
+            'EFA',
+            'EOG',
+            'FB',
+            'FDX',
+            'FXE',
+            'GILD',
+            'GLD',
+            // 'GMCR',
+            'GOOGL',
+            'GS',
+            'HD',
+            'IBM',
+            'IWM',
+            'IYR',
+            // 'KMP',
+            'LMT',
+            // 'LNKD',
+            'MON',
+            //'NDX',
+            'NFLX',
+            // 'OEX',
+            'OXY',
+            'PCLN',
+            'QQQ',
+            // 'RUT',
+            'SBUX',
+            'SLB',
+            // 'SNDK',
+            // 'SPX',
+            'SPY',
+            'TIF',
+            'TLT',
+            'TSLA',
+            'V',
+            'VMW',
+            'WYNN',
+            'XLE',
+            'XLU',
+            'XOM',
+            // 'XOP',
+            'XRT',
+            'ZMH',
+        ];
     }
     AppComponent.prototype.ngOnInit = function () {
-        this.getData();
+        // this.getHistoryStockData();
     };
-    AppComponent.prototype.getData = function () {
+    AppComponent.prototype.getHistoryStockData = function () {
         var _this = this;
         var params = new URLSearchParams();
         this.session_id && params.set('session_id', this.session_id);
@@ -55,7 +115,38 @@ export var AppComponent = (function () {
         });
     };
     AppComponent.prototype.search = function () {
-        this.getData();
+        this.getHistoryStockData();
+    };
+    AppComponent.prototype.loadVolatility = function () {
+        var _this = this;
+        var params = new URLSearchParams();
+        this.session_id && params.set('session_id', this.session_id);
+        this.login_date && params.set('login_date', this.login_date);
+        params.set('symbols', this.symbols.join(','));
+        this.status = 'Loading volatility...';
+        this.http.get('http://localhost:3000/volatilities.json', { search: params })
+            .map(function (res) { return res.json(); })
+            .subscribe(function (res) {
+            // console.log('*** response:', res);
+            if (res.meta) {
+                _this.session_id = res.meta.session_id;
+                _this.login_date = res.meta.login_date;
+            }
+            _this.status = 'Volatility loading complete.';
+            // this.stockDatums = [];
+            // res.data.stocks && res.data.stocks.forEach(datum => {
+            //   let datumObj: StockDatum = new StockDatum();
+            //   datumObj.accept(datum);
+            //   this.stockDatums.push(datum)
+            // });
+            //
+            // console.log('*** stock datums:', this.stockDatums);
+            //
+            // this.data = res
+        }, function (error) {
+            console.log('*** error:', error);
+            _this.error = error;
+        });
     };
     AppComponent = __decorate([
         Component({
@@ -63,9 +154,8 @@ export var AppComponent = (function () {
             templateUrl: './app.component.html',
             styleUrls: ['./app.component.css']
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof Http !== 'undefined' && Http) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [Http])
     ], AppComponent);
     return AppComponent;
-    var _a;
 }());
-//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/app/js/tradefinder-app/src/app/app.component.js.map
+//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/client/src/app/app.component.js.map

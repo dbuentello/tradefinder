@@ -1,0 +1,1 @@
+json.partial! "volatilities/volatility", volatility: @volatility

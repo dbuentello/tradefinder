@@ -1,277 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/server/api/lib/ameritrade_helper.rb" line="614" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d70d0225-895b-47f1-993e-f54cce8cb095" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Gemfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Procfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.rdoc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Rakefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/stock_options.coffee" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/stocks.coffee" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/tradefinder_app.coffee" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/welcome.coffee" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/scaffolds.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/stock_options.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/stocks.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/tradefinder_app.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/welcome.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/concerns/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/stock_options_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/stocks_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/tradefinder_app_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/welcome_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/helpers/hello_world.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/helpers/stock_options_helper.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/helpers/tradefinder_app_helper.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/helpers/welcome_helper.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/.editorconfig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/angular-cli.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/e2e/app.e2e-spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/e2e/app.po.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/e2e/tsconfig.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/karma.conf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/protractor.conf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/app/app.component.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/app/app.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/app/app.component.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/app/app.component.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/app/app.module.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/app/components/stock-datum/stock-datum.component.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/app/components/stock-datum/stock-datum.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/app/components/stock-datum/stock-datum.component.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/app/components/stock-datum/stock-datum.component.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/app/model/stock-datum.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/assets/.gitkeep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/environments/environment.prod.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/environments/environment.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/main.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/polyfills.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/test.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/src/tsconfig.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/tradefinder-app/tslint.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/mailers/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/concerns/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/stock.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/stock_option.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stock_options/_form.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stock_options/_stock_option.json.jbuilder" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stock_options/edit.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stock_options/index.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stock_options/index.json.jbuilder" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stock_options/new.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stock_options/show.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stock_options/show.json.jbuilder" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stocks/_form.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stocks/_stock.json.jbuilder" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stocks/edit.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stocks/index.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stocks/index.json.jbuilder" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stocks/new.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stocks/show.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/stocks/show.json.jbuilder" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/tradefinder_app/index.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/welcome/index.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/bundle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/rails" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/rake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/setup" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/spring" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config.ru" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/boot.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/environment.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/environments/test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/initializers/assets.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/initializers/backtrace_silencers.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/initializers/cookies_serializer.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/initializers/filter_parameter_logging.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/initializers/inflections.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/initializers/mime_types.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/initializers/session_store.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/initializers/wrap_parameters.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/locales/en.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/secrets.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20161210061642_create_stocks.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20161211060033_add_symbol_to_stock.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20161211060120_add_last_to_stock.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20161211060815_add_details_to_stock.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20170110034942_add_fields_to_stock.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20170110035326_add_timestamp_to_stock.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20170112034450_create_stock_options.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/ameritrade_helper.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/assets/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/tasks/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/log/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/log/development.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/404.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/422.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/500.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/robots.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/controllers/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/controllers/stock_options_controller_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/controllers/stocks_controller_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/controllers/tradefinder_app_controller_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/controllers/welcome_controller_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/fixtures/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/fixtures/stock_options.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/fixtures/stocks.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/helpers/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/integration/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/mailers/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/models/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/models/stock_option_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/models/stock_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/test_helper.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/-7/-7gkStDHvAnINnZdh5KHKbyTpe9yFGQgNbf2Pv7YCZU.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/-F/-FXvIe_lgLunBLYbi1GkSG7FJ3tN2j4NHPF0TNUXkmY.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/-K/-Kp8Ur88zKZEKtCiiqKJJgE3xUgicR4HZAZRuhOjqr0.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/1U/1UuIS4pHEiuiID3nzOU6_N4gPE-j8pbjzHQrl7cLpuc.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/2l/2lGkTMvcklfl2yrgVV2_xHZ-XKNGrSclO_mCbgxdoVY.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/3L/3LEofI36ZNq6TN_JSrI4KbUjcXVDsRPpD-UiGm2GxLg.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/3O/3OUuGdrADad_tzxRyJVYPfeK8Kiz-o5_fah5q0pHmH8.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/46/46Wj7T_G2KBBRowJinYqB4_WUkoBuw4_F0J86dxMPRA.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/5L/5Lly_CA8DZvPhQV2jDQx-Y6P_y3Ygra9t5jfSlGhHDA.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/5V/5VT5tGM65T6ty2JoFnE_QiYF5HQXdeDH1AKmi9Vlv8w.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/5d/5D1CU3_5DN05YV0pgl1zjTix_qrDar-YLybTRxLXYrE.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/5d/5dUAPNSougTQ3DqKUhPLYH9Nq795RMig1h_ytLjC5aI.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/5n/5nh3fWBpejY72i9YuCAxm69t65vv2RKfSzRs9Kg5IZc.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/6Z/6ZrVRd4nitxdd9rKhvs668xpTkfEDpqRfNqpN_HyYBs.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/6l/6lK07rucEu8FFhmhzcnw0O4olUJemJljchqTv7Nlz4M.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/6s/6sUZztl9IetFF_shdHoqe5Wke6qZfZ78JdDHUh-15AE.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/7y/7yE-tTURH2YeFJtRd8x2l8hyiMNQ2ld9aEvM-uI-BSA.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/8C/8CRtsU_Xzxdhc8LvA7oQthD5pV0T5eJcDzFthPH_u9U.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/8O/8O1gdZwWSPe_RYanRQ5T40C0B7i3ju0qcrKCxYFtEO0.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/AL/ALyE30P2LYcCviukbwIyXyfCyFfYiv0oxNZFw7Aktyo.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/AP/APY89OAPJx9A3D3xcCoktvEvQUs7NcWChYXnjjjPzz0.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/AP/ApLx_V3ngHgt2EIJ1_sPqP8n_zs0NsKVhZ4IVJ_UaUQ.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Ac/AcHWZSpH4l33p__F-2Fv_K7vhSCO3B8irfNKXTSUC44.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/BB/BBNYk3FlO9R0JawHKIV7KBYGBsAQQ07nHuTr7s-NR7c.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/C9/C9fCQTzBJqcxETvB5AC_pbff9alMU7TWoKYhu36o-P0.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/CT/CTYXne6W0JiYDEQEQiw2O48l4q3i1sfuKausYnx31Ns.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Co/Coq1OKFPGu74dlXk9hdyIshu7zBIbfllNZmgqd6XzFY.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Cv/Cv7kiaab9O8MgcWeD6ihB5_5n-M92M2Zr62xMRpdQi8.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/DS/DSOLSc6A5RVSmvM415eEWAWG_AgOvZcLZOXQjsXyWQA.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/DS/dS7upRJ7FV1jrL9QIVCEgTW_kEby1nTfwF7NWgveirA.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/E7/E74MfSr5eE2YG0Y2kvG2PpMe35WagpKY9ycJ318Pa7w.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/EB/EBtbhweQl74JQNkwFL3ahZH_9x44ceqa9hOT8lQ_SfM.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/EY/EYDi8urEOrjN9Jtb3noBI2nOQNbYvU4gZ8HwWRx8QwQ.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/FF/FFJ2a8LWlTF-oEsnRJPLUlq_sX1N2cijvMK6TLwmPj4.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/GG/GGSgcUEIDO-Npc3dC5pazIwsNnE4uUDCFpgsW0tVNYE.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/GT/GTFEI4aRgp97zS1jpC4GFja8wMY9S8bBTzWQcP740MY.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/GU/GU-SbikmHW9fAEhfTmKHMgr9qZ6or4juyYFTb7HLv24.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Gr/GrhjfyTYNMMS9kc7c5woUCY16Byi23RXPfo255zf8OQ.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/HM/HMUkCSgs0n4QZA-nSMbX0Tr-HWlJiuUh6ze7-xkpnRg.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/I9/I9Ji3hKbhOCXCg5Or8mdoK35rCPPZCSeNUUiuHJ176w.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/J0/J086nkWoEQL2rCFETZaN-cMgzuGOwHSY0Grg0Nlcvjw.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/JD/JDmcC-2PKTKTAUfPNth4PTdJOH61YkP-VrmIH027uT8.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/KB/KB76RSdBDA0SRf6fdkS0HqRcQ5iO3i9YDuCUdXb90WI.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Kk/KkBazZPEwKE5PD-NdRz1Pi9N3M4QM5dZE5AgLJxceNw.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Mo/MoNGZ2FGVxv4PfaEDMPgG7uViDF43Xk6MZyCD5oeqTQ.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/N0/N04UAlY4-IvTm4MJHKwxQOJN3OfqDN6UqEsgJGiWxMg.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/O5/O55JsJWopLZsQzJmhId4mmzXqVo8hellBM0fZsACTx0.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/OD/ODsYc5_5adL75F8z4b8yvh_OUbpievLxKZrchheVGlk.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/OI/OI6uxGcnsKavdWTtwDAasU3wPx8QXhzBgV0X2n1KjMQ.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/OJ/OJBrWl_dzKeFjuvWow05UYpCQkpIbWjT95Xn7Cka_Ao.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/OL/OLvaRYnaR0Qg6fNWyIW_d34cqfFYJ4GKjC_m09QDTRM.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Oh/OhU53h8qxJzU6H4QgGNdnREPxTiQ46MfJF5YSD9ZjEM.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Oq/OqkmYGd84C4NAzgVQwJNrJYOUi2oyNOwDEldA-rz95s.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/PF/PFVfxJFWUpGhjECmnqaB6lEpOvSRCXjlASYx8lV_Ds4.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Pm/Pm3ENYpCrQMOJGd-d8lACN_nbGZWiivq_KyPLJoD9Xk.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/QQ/QQXBPlBFhl4NuPnT3Z9k1qtYCQm7G5X_yaAiSOxe7PY.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Qi/QiPNFZWeJGfRbXhYRH8zE7MeORfEGxWXrG6TbuEVBQw.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Rk/RkpjTMxwe3eLYrQXIK8dAHeShRyOPAPMc2G1We1jhsQ.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/SG/SG8sAFC6fzVw9SQ1fJHgSB8N76dAw7QbUFzKKLEordw.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/TI/TIvbktFVtJaFmYIFDuObcoOGhPfc3BZzqJa7xDkhAdM.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/TV/TVvMkZUWDtDlHIoJSOE0gv5dzG-ql1zW2oW_yWAcZTs.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/TZ/TZMu3rU6GVfubiuNJovSjxldkCXs8vXfStnPqewijUQ.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Te/TedIYSckGo11BiisV9zVHpBJKyT8mN1JkU6kmUIo9qI.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Uj/Ujo_mocaWHzBbGg8a25p9z_sdSCbkgrGgK4j87PpX3w.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Uo/UodpuWycuvqohCADk_UY2FOieRGaPEgCfckeiKe7t7E.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/VB/VBkm8R2lIRtabljS3pDoAnzJXzmlwWw1Y1qkumZN9mE.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/WW/WWKN4hDHrItaWC1FYxDiALcmYUzYDyd625sTu6G6zYg.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/We/WedEJAMWeYcuWzWA7ndRUu9YymPWAHc4ADGGpuBDwSc.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/X2/X2_56X2a_2AE_wFGqakhYHvdB8uEsgtwpsMBNecbG3c.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/YI/YIZ0LgZVS3ahZ6cmuPecWqZLIkQ-7O-6IEHhnVHNBik.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/YN/YN48Qz8Xih3ko60wianIkbG3Gb3yMQ7_BvHS1bAU7sY.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Ya/YaWByytmieIz_cFlIZAZsuqYK4EK1Z2Le2OjHRZs_e8.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/ZL/ZLH2jdphrI_QCcrV7OyC5ElBhTYLtzuwwTNTySdk2Hc.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/ZQ/ZQKPTNqLWcFkVIyMYs23zG-aYQ9ihsYb0nHR0uCOS9M.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/ZR/ZR2Qz8f7f93VnJDUAH_PfJF_Q8O7f1LSOxZD8xDEil0.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/_2/_2XyFFIfJ0s3YWCTRUw9XtVNfXC8C2CBvnh9FqlXe6Y.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/_R/_RJWJAenUxj1zQQi1S4FgIFJy5iRn749g9MNl2R3YjY.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/au/aullSyL7rZjIHTvIGxXsFPR8Hni7aHWmwePtGYNpkto.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/bJ/bJQMdTEhnpfQjct_dHqX2ejxS-pidSEtGX7AxvNaALE.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/bh/bh3XH1fxFXtAGy8tWAjOQQupC0UUKtY2VR4tFQkZOvI.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/bl/bl1aDDvhL9tbwlml2cXMF7CIkLKgaJhCrVsLAmXbEPs.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/bw/bwu30QPSlTOEAjvVdsw0Qfe71AO-GTdGUs13RMzJnNc.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/db/dbsTlxm_oKQRTomW2qRDXyhEvx9D1ZS2vTEUCLDZ0ho.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/eD/eDImwDcoOY3ZSKNZuhDPRG21LWRj-FlrXHDdSLP8Sz0.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/er/erCbprsWgLHhd3Qo_HM-FmijKTcgQufdTRwlJjOJuEI.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/es/es5gh5wpMFf5KOdbc3e9fLoHPdr6lOqFSRJvkNxGI8k.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/fi/fiSk29rcHOsfMMh6nBKjxU7s34PyysPyezZ_hRFye4A.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/gE/gEsfFA0PFYd8Y9XGx9ezzcOyWCNiNWWjnTrmj8WtuB8.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/g_/g_QTJy6Bfz6KU2A1jqpuNE5cyN4PRyy15XXGdb1q42U.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/i7/i7eTYAjd0WxtQsI-2QPi24ZLgAxt9WegkfEfo9_Xb-I.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/iu/iusjzYJVp-3ndZEeBZCIDdvQKWHGC-vPgrjvFKv6yQQ.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/jI/jIJrD9S3EUPbPKMcqKqRwCiCp63DpnzNHqtEQkx-jqw.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/jV/jVEPJXcPi097cLlPKEI7jMDYWRS2OMFPN7o3hTdeMUU.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/jX/jXvFL8ViYIkK9swGYagWYmFrWdWM7c9btO9jL4ICXXI.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/kS/kSkCWaAJCcTgZ_AhrRCjZhNtkE12cubiq70uNtditqk.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/km/km1UJe7Uvz3cE03ctzec3Mpcow_vgKO36rq50_Szy3o.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/lY/lYKl94uPg5XkZXwQ_c0-KaIU4VRR-lcBhN117f9yxyE.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/m7/m71fv_eTjRRt8Mx5BSH5lptyYhwNZFHTD7qNhdx1yAY.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/mS/mSyJcZ50hQdH2n0rxp1yZFbRgR4NavMiWAo5iLe0NTc.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/mk/mktJ5SWPAc7Ywmi81bRQKJga7nA_2oWpVCbTn9u07cY.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/mn/mn4HjSwNH-yfmAoQ9uMwaygMQEfUwwAqe51euUHmecg.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/nI/nIEqqyjjrd4LTqTQnLEDZICSU9T4aOuFWL_cV-jZM1M.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/oP/oPSjyzcntKk-aYnb1XfzNiVSseiZOKkcSnRj7FUYuvc.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/oe/oebsL465yABHcJZbpurVmol3PiyCan4PZK3_upHbdA4.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/pw/pwKN90h565YVf8MFh6gMmPSo7nZNbOvL-UTHOEum-s0.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/q7/q7anvoaZY85s14lQA56BigS_0wyydTkt50RFKVrKa0E.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/qo/qooNCrF7pRu-4pzl-JHiBjIPoq9767EUs_Qtd4f_nKY.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/qx/qxqkG7XNDXi-JRVYnx-_jsRhIP7ZEV5MaJR5z6U258g.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/s3/s3Y7uvmqgplP-41QDz1rOBRuqDMmRDbdnIVZjYrM_Zg.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/t1/t10mb3-e00VNBpg_t8Nk3VgvaR9-hk9et9vqV-BfYtY.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/t2/t2WOMWtIwoGctubtbfKXOUZ1YFBRWuxnaTYq3jYT5U0.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/tS/tSwjBkkSO1VXDXP6TZqd30fAybLzHLLBegvi9ZATMs0.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/v0/v0dmhFZTrzM19kDC1Hhs8M6shNInx4Zpmgu6e4XdLos.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/vC/vCVyk3s_OQWC3XZa9emdjtNGj_zayH09mXr10mKFNNI.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/vk/vkKDVMEmDLZ3QbaK9eps2EOipC2tf7mP-SN6zkZnR6k.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/wH/wH3ITJbbONvimyqCpabxHM5gjhVE3xgdhEDQlOtp1MA.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/x9/x9eWg-VYvG90XcaTD8bb9ISCDCZ9-a1KOMU3vYRFS-I.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/xG/xGkkytpaae49BAyQqKjbY5Z4aqljaRpcEJkuSCBlx8s.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/xr/xrH2VXg93zsfXitpcnEFd6CzHtbtmOHsrB4MRepZn_M.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/xz/xz-sF29y3YXwqhuwbDPVBZSVPZcyzRGbiYyUTxnv8c8.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/yp/ypKm9aPG4vX3ZLn57eHJO9Scl_uJfSHito5Ei5Rt_cQ.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/yw/ywAT7lM0MuWfPl4JZLkeZ4RQgtpH5hmr0k0Dmbh8rek.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/yz/yza_OSpIJh5ssjPr9XbBTSwJ25bjkYvW5QulP7kR41o.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/zb/zbVtKUYOSZsqijm3s1UBCorAKWv0U8DzhGaW-vsyYsI.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/pids/server.pid" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/assets/javascripts/.keep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/assets/stylesheets/.keep" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/dist/out-tsc/app/app.component.js" afterPath="$PROJECT_DIR$/client/dist/out-tsc/app/app.component.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/dist/out-tsc/app/app.component.js.map" afterPath="$PROJECT_DIR$/client/dist/out-tsc/app/app.component.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/dist/out-tsc/app/app.component.spec.js" afterPath="$PROJECT_DIR$/client/dist/out-tsc/app/app.component.spec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/dist/out-tsc/app/app.module.js" afterPath="$PROJECT_DIR$/client/dist/out-tsc/app/app.module.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/dist/out-tsc/app/components/stock-datum/stock-datum.component.js" afterPath="$PROJECT_DIR$/client/dist/out-tsc/app/components/stock-datum/stock-datum.component.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/dist/out-tsc/app/components/stock-datum/stock-datum.component.spec.js" afterPath="$PROJECT_DIR$/client/dist/out-tsc/app/components/stock-datum/stock-datum.component.spec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/dist/out-tsc/app/model/stock-datum.js" afterPath="$PROJECT_DIR$/client/dist/out-tsc/app/model/stock-datum.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/dist/out-tsc/environments/environment.js" afterPath="$PROJECT_DIR$/client/dist/out-tsc/environments/environment.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/dist/out-tsc/environments/environment.prod.js" afterPath="$PROJECT_DIR$/client/dist/out-tsc/environments/environment.prod.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/dist/out-tsc/main.js" afterPath="$PROJECT_DIR$/client/dist/out-tsc/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/dist/out-tsc/polyfills.js" afterPath="$PROJECT_DIR$/client/dist/out-tsc/polyfills.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/dist/out-tsc/test.js" afterPath="$PROJECT_DIR$/client/dist/out-tsc/test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/app/app.component.html" afterPath="$PROJECT_DIR$/client/src/app/app.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/app/app.component.ts" afterPath="$PROJECT_DIR$/client/src/app/app.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/Gemfile" afterPath="$PROJECT_DIR$/server/api/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/Gemfile.lock" afterPath="$PROJECT_DIR$/server/api/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/app/controllers/stock_options_controller.rb" afterPath="$PROJECT_DIR$/server/api/app/controllers/stock_options_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/config/routes.rb" afterPath="$PROJECT_DIR$/server/api/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/db/schema.rb" afterPath="$PROJECT_DIR$/server/api/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/lib/ameritrade_helper.rb" afterPath="$PROJECT_DIR$/server/api/lib/ameritrade_helper.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -289,102 +43,36 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/Gemfile">
+      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/app/app.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="5" lean-forward="false" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="-1387">
+              <caret line="41" column="11" lean-forward="true" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/app/controllers/application_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/config/routes.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tradefinder_app_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/app/controllers/tradefinder_app_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/config/application.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="64" lean-forward="false" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="database.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/config/database.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="environment.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/config/environment.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="development.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/config/environments/development.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stocks_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/app/controllers/stocks_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="44" column="43" lean-forward="false" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ameritrade_helper.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ameritrade_helper.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/api/lib/ameritrade_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4650">
-              <caret line="310" column="11" lean-forward="false" selection-start-line="310" selection-start-column="11" selection-end-line="310" selection-end-column="11" />
+            <state relative-caret-position="407">
+              <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/app/app.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+              <folding>
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -401,16 +89,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>@stocks</find>
-      <find>@stock</find>
-      <find>@session_id</find>
-      <find>get_stock_quote</find>
-      <find>self.</find>
-      <find>@performed_login</find>
-      <find>@</find>
-      <find>get_cached_for_symbol</find>
-      <find>getting stock qyo</find>
-      <find>todo</find>
       <find>get_symbol</find>
       <find>save_stock</find>
       <find>delete_existing_days_quotes</find>
@@ -421,6 +99,26 @@
       <find>login</find>
       <find>session</find>
       <find>login_date</find>
+      <find>do</find>
+      <find>parse_option_quotes</find>
+      <find>save_stock_option</find>
+      <find>@stock_options</find>
+      <find>delete_stock_options</find>
+      <find>vola</find>
+      <find>get_stock_option_quote</find>
+      <find>get_volatility</find>
+      <find>order</find>
+      <find>begining_of_day</find>
+      <find>get_prev_year_weekdays</find>
+      <find>get_vol_gap_dates</find>
+      <find>beginning_of_day</find>
+      <find>date &gt;= ?</find>
+      <find>notice</find>
+      <find>save_volatility</find>
+      <find>get_volatility_quote</find>
+      <find>parse_volatility_quotes</find>
+      <find>gap dates</find>
+      <find>*** vols</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -454,12 +152,21 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/server/api/db/migrate/20170117015323_create_stock_options.rb" />
         <option value="$PROJECT_DIR$/server/api/db/migrate/20170117015311_create_stocks.rb" />
-        <option value="$PROJECT_DIR$/server/api/config/routes.rb" />
         <option value="$PROJECT_DIR$/server/api/config/application.rb" />
         <option value="$PROJECT_DIR$/server/api/config/database.yml" />
-        <option value="$PROJECT_DIR$/server/api/Gemfile" />
         <option value="$PROJECT_DIR$/server/api/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/server/api/app/controllers/stocks_controller.rb" />
+        <option value="$PROJECT_DIR$/server/api/app/controllers/stock_options_controller.rb" />
+        <option value="$PROJECT_DIR$/server/api/app/controllers/volatilities_controller.rb" />
+        <option value="$PROJECT_DIR$/server/api/app/views/ivr/ivr.html.erb" />
+        <option value="$PROJECT_DIR$/server/api/config/routes.rb" />
+        <option value="$PROJECT_DIR$/server/api/db/migrate/20170122043039_create_volatilities.rb" />
+        <option value="$PROJECT_DIR$/server/api/db/schema.rb" />
+        <option value="$PROJECT_DIR$/server/api/Gemfile" />
+        <option value="$PROJECT_DIR$/server/api/app/controllers/ivr_controller.rb" />
+        <option value="$PROJECT_DIR$/client/src/app/app.component.html" />
+        <option value="$PROJECT_DIR$/server/api/lib/ameritrade_helper.rb" />
+        <option value="$PROJECT_DIR$/client/src/app/app.component.ts" />
       </list>
     </option>
   </component>
@@ -554,102 +261,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tradefinder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tradefinder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tradefinder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tradefinder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tradefinder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tradefinder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="environments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tradefinder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tradefinder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -689,6 +300,60 @@
               <option name="myItemId" value="tradefinder" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tradefinder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tradefinder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tradefinder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tradefinder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tradefinder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tradefinder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -712,6 +377,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/api/app/views/ivr" />
       <recent name="$PROJECT_DIR$/server/api/app/controllers" />
       <recent name="$PROJECT_DIR$/server/api/lib" />
     </key>
@@ -1221,12 +887,12 @@
       <workItem from="1483841980009" duration="36045000" />
       <workItem from="1484349871900" duration="613000" />
       <workItem from="1484351318462" duration="1649000" />
-      <workItem from="1484617662165" duration="2323000" />
+      <workItem from="1484617662165" duration="29914000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54376000" />
+    <option name="totallyTimeSpent" value="81967000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1249,6 +915,7 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2918193" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1260,7 +927,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1274,17 +940,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/js/tradefinder-app/src/app/components/stock-datum/stock-datum.component.ts" />
-    <entry file="file://$PROJECT_DIR$/app/js/tradefinder-app/src/app/app.module.ts" />
-    <entry file="file://$PROJECT_DIR$/app/js/tradefinder-app/src/index.html" />
-    <entry file="file://$PROJECT_DIR$/config/environments/production.rb" />
-    <entry file="file://$PROJECT_DIR$/app/helpers/stocks_helper.rb" />
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb" />
-    <entry file="file://$PROJECT_DIR$/app/controllers/tradefinder_app_controller.rb" />
-    <entry file="file://$PROJECT_DIR$/db/migrate/20170110034942_add_fields_to_stock.rb" />
-    <entry file="file://$PROJECT_DIR$/db/migrate/20170110035326_add_timestamp_to_stock.rb" />
-    <entry file="file://$PROJECT_DIR$/db/migrate/20161211060815_add_details_to_stock.rb" />
-    <entry file="file://$PROJECT_DIR$/db/migrate/20161211060120_add_last_to_stock.rb" />
     <entry file="file://$PROJECT_DIR$/db/migrate/20161211060033_add_symbol_to_stock.rb" />
     <entry file="file://$PROJECT_DIR$/app/views/stocks/index.html.erb" />
     <entry file="file://$PROJECT_DIR$/app/js/tradefinder-app/src/app/model/stock-datum.ts" />
@@ -1316,30 +971,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/db/migrate/20170117015311_create_stocks.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/app/controllers/stock_options_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1384,14 +1015,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="5" lean-forward="false" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/api/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1408,11 +1031,135 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/app/views/volatilities/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/app/views/volatilities/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/db/migrate/20170117015311_create_stocks.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/app/views/ivr/ivr.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/app/controllers/stock_options_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="105" column="57" lean-forward="false" selection-start-line="105" selection-start-column="51" selection-end-line="105" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/app/controllers/volatilities_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/db/migrate/20170122043039_create_volatilities.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="742">
+          <caret line="59" column="23" lean-forward="false" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/db/migrate/20170123032908_remove_invalid_from_volatilities.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/db/migrate/20170123032015_add_invalid_to_volatilities.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" column="19" lean-forward="false" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/app/controllers/ivr_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="42" lean-forward="true" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/api/lib/ameritrade_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4650">
-          <caret line="310" column="11" lean-forward="false" selection-start-line="310" selection-start-column="11" selection-end-line="310" selection-end-column="11" />
+        <state relative-caret-position="407">
+          <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1387">
+          <caret line="41" column="11" lean-forward="true" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

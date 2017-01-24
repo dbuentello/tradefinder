@@ -28,4 +28,4 @@ export var StockDatumComponent = (function () {
     ], StockDatumComponent);
     return StockDatumComponent;
 }());
-//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/app/js/tradefinder-app/src/app/components/stock-datum/stock-datum.component.js.map
+//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/client/src/app/components/stock-datum/stock-datum.component.js.map

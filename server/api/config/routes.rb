@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :volatilities
   resources :stock_options
   get 'tradefinder_app/index'
 
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
   # get 'welcome/index'
 
   root 'tradefinder_app#index'
+
+  get 'ivr', to: 'ivr#ivr'
 
   match '*any' => 'application#options', :via => [:options]
 

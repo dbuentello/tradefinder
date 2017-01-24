@@ -1,0 +1,2 @@
+class Volatility < ApplicationRecord
+end

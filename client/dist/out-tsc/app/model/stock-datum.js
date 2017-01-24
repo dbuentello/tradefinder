@@ -22,4 +22,4 @@ export var StockDatum = (function () {
     };
     return StockDatum;
 }());
-//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/app/js/tradefinder-app/src/app/model/stock-datum.js.map
+//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/client/src/app/model/stock-datum.js.map

@@ -17,4 +17,4 @@ var context = require.context('./', true, /\.spec\.ts$/);
 context.keys().map(context);
 // Finally, start Karma to run the tests.
 __karma__.start();
-//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/app/js/tradefinder-app/src/test.js.map
+//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/client/src/test.js.map

@@ -7,4 +7,4 @@ if (environment.production) {
     enableProdMode();
 }
 platformBrowserDynamic().bootstrapModule(AppModule);
-//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/app/js/tradefinder-app/src/main.js.map
+//# sourceMappingURL=/Users/markshaw/Coding/tradefinder/client/src/main.js.map

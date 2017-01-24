@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Symbol:</strong>
+  <%= @volatility.symbol %>
+</p>
+
+<p>
+  <strong>Vol:</strong>
+  <%= @volatility.vol %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @volatility.date %>
+</p>
+
+<%= link_to 'Edit', edit_volatility_path(@volatility) %> |
+<%= link_to 'Back', volatilities_path %>
