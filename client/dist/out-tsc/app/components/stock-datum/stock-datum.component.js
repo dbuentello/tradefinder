@@ -21,8 +21,8 @@ export var StockDatumComponent = (function () {
     StockDatumComponent = __decorate([
         Component({
             selector: 'stock-datum',
-            templateUrl: './stock-datum.component.html',
-            styleUrls: ['./stock-datum.component.css']
+            templateUrl: './condor.component.html',
+            styleUrls: ['./condor.component.css']
         }), 
         __metadata('design:paramtypes', [])
     ], StockDatumComponent);

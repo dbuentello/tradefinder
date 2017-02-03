@@ -25,7 +25,8 @@ class StockOptionsController < ApplicationController
 
       if !session_id.nil?
         syms.each do |sym|
-          new_stock_options = AmeritradeHelper.get_stock_option_symbol(sym, !params[:historic].nil?, params, session)
+          # AmeritradeHelper.delete_stock_options(sym)
+          new_stock_options = AmeritradeHelper.get_stock_option_symbol(sym, !params[:historic].nil?, params[:minDaysExp], params[:maxDaysExp])
           @stock_options = @stock_options + new_stock_options unless new_stock_options.nil? || !new_stock_options.length
         end
       else
@@ -38,11 +39,11 @@ class StockOptionsController < ApplicationController
 
     response = {
         :meta => {
-            # :session_id => session_id,
-            # :login_date => login_date
+            :session_id => session_id,
+            :login_date => login_date
         },
         :data => {
-            # :stock_options => @stock_options
+            :stock_options => @stock_options
         }
     }
 

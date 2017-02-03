@@ -1,0 +1,27 @@
+<div style="margin:1rem">
+  <table class="table table-striped table-bordered table-hover table-condense">
+    <tr>
+      <th>Strikes</th>
+      <th>Strike Width</th>
+      <th>Delta</th>
+      <th>IV</th>
+      <th>Credit</th>
+      <th>ROC</th>
+      <th>POB</th>
+      <th>Max Loss</th>
+      <th>Margin</th>
+    </tr>
+    <tr *ngFor="let spread of spreads | slice:0:maxSpreads">
+      <td class="center"><span>{{spread.shortOption.strike | number : '1.0-0'}}/{{spread.longOption.strike | number : '1.0-0'}}</span></td>
+      <td class="center"><span>{{spread.strikeWidth}}</span></td>
+      <td class="center"><span>{{spread.shortOption.delta}}</span></td>
+      <td class="center"><span>{{spread.shortOption.iv}}</span></td>
+      <td class="right"><span>{{spread.credit | currency:'USD':true:'1.2-2'}}</span></td>
+      <td class="right"><span>{{spread.roc | number : '1.2-2'}}%</span></td>
+      <td class="right"><span>{{spread.probOfProfit | number : '1.2-2'}}%</span></td>
+      <td class="right"><span>{{spread.maxLoss | currency:'USD':true:'1.2-2'}}</span></td>
+      <td class="right"><span>{{spread.margin | currency:'USD':true:'1.2-2'}}</span></td>
+      <!--<td><span>: {{spread.}}</span></td>-->
+    </tr>
+  </table>
+</div>

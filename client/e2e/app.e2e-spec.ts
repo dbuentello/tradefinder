@@ -1,10 +1,10 @@
-import { TradefinderAppPage } from './app.po';
+import { ClientPage } from './app.po';
 
-describe('tradefinder-app App', function() {
-  let page: TradefinderAppPage;
+describe('client App', function() {
+  let page: ClientPage;
 
   beforeEach(() => {
-    page = new TradefinderAppPage();
+    page = new ClientPage();
   });
 
   it('should display message saying app works', () => {

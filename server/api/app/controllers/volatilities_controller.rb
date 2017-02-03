@@ -8,7 +8,7 @@ class VolatilitiesController < ApplicationController
   def index
     headers['Last-Modified'] = Time.now.httpdate
     session_id = nil
-    @volatilities = []
+    response = {}
 
     if !params[:symbols].nil?
       syms = params[:symbols].split(",")
@@ -22,26 +22,27 @@ class VolatilitiesController < ApplicationController
 
       if !session_id.nil?
         syms.each do |sym|
-          vols = AmeritradeHelper.get_volatility(sym, params, session)
-          @volatilities = @volatilities + vols if !vols.nil?
+          AmeritradeHelper.load_volatility(sym, params, session)
         end
       else
         puts "*** session id is nil"
       end
 
-    else
-      @volatilities = Volatility.all
-    end
+      vols = []
+      syms.each do |sym|
+        vols << AmeritradeHelper.calculate_ivr(sym)
+      end
 
-    response = {
-        :meta => {
-            :session_id => session_id,
-            :login_date => login_date
-        },
-        :data => {
-            :volatilites => @volatilities
-        }
-    }
+      response = {
+          :meta => {
+              :session_id => session_id,
+              :login_date => login_date
+          },
+          :data => {
+              :volatility => vols
+          }
+      }
+    end
 
     respond_to do |format|
       format.html

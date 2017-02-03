@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { StockDatumComponent } from './components/stock-datum/stock-datum.component';
+import { StockOptionDatumComponent } from './components/stock-option-datum/stock-option-datum.component';
 export var AppModule = (function () {
     function AppModule() {
     }
@@ -20,7 +21,8 @@ export var AppModule = (function () {
         NgModule({
             declarations: [
                 AppComponent,
-                StockDatumComponent
+                StockDatumComponent,
+                StockOptionDatumComponent,
             ],
             imports: [
                 BrowserModule,

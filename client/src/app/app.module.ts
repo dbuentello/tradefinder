@@ -5,11 +5,18 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { StockDatumComponent } from './components/stock-datum/stock-datum.component';
+import { StockOptionDatumComponent } from './components/stock-option-datum/stock-option-datum.component';
+import { SpreadComponent } from './components/spread/spread.component';
+import { CondorComponent } from './components/condor/condor.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    StockDatumComponent
+    StockDatumComponent,
+    StockOptionDatumComponent,
+    SpreadComponent,
+    CondorComponent,
   ],
   imports: [
     BrowserModule,

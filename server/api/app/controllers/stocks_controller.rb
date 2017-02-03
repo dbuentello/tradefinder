@@ -13,14 +13,14 @@ class StocksController < ApplicationController
 
     if !params[:symbols].nil?
       syms = params[:symbols].split(",")
-      @stocks = Stock.where(symbol: syms)
+      @stocks = params[:latest] ? [] : Stock.where(symbol: syms)
 
       login_response = AmeritradeHelper.login(params)
       puts "*** login response #{login_response}"
       unless login_response.nil?
         session_id = login_response[:session_id]
         login_date = login_response[:login_date]
-    end
+      end
 
       if !session_id.nil?
         syms.each do |sym|
@@ -42,7 +42,8 @@ class StocksController < ApplicationController
         },
         :data => {
             # :stocks => @stocks.sort_by &:date
-            :stocks => @stocks.order(:date)
+            # :stocks => @stocks.order(:date)
+            :stocks => @stocks
         }
     }
 

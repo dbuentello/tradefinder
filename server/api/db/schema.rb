@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123033038) do
+ActiveRecord::Schema.define(version: 20170202000111) do
+
+  create_table "option_query_caches", force: :cascade do |t|
+    t.string   "symbol"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "expirations"
+  end
 
   create_table "stock_options", force: :cascade do |t|
     t.string   "symbol"
@@ -35,6 +42,8 @@ ActiveRecord::Schema.define(version: 20170123033038) do
     t.datetime "expiration"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.index ["symbol"], name: "index_stock_options_on_symbol"
+    t.index [nil], name: "index_stock_options_on_date"
   end
 
   create_table "stocks", force: :cascade do |t|
@@ -54,6 +63,8 @@ ActiveRecord::Schema.define(version: 20170123033038) do
     t.decimal  "close"
     t.integer  "volume"
     t.datetime "date"
+    t.index ["date"], name: "index_stocks_on_date"
+    t.index ["symbol"], name: "index_stocks_on_symbol"
   end
 
   create_table "volatilities", force: :cascade do |t|
@@ -62,6 +73,8 @@ ActiveRecord::Schema.define(version: 20170123033038) do
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["date"], name: "index_volatilities_on_date"
+    t.index ["symbol"], name: "index_volatilities_on_symbol"
   end
 
 end

@@ -1,0 +1,2 @@
+class OptionQueryCache < ApplicationRecord
+end

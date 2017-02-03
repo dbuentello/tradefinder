@@ -1,42 +1,106 @@
-<h1>
-  {{title}}
-</h1>
+<h2 style="text-align: center">TradeFinder</h2>
 
 <div *ngIf="error">
   {{error}}
 </div>
 
-<button style="margin-bottom: 1rem; margin-top: 1rem" (click)="loadVolatility()">Load volatility</button>
+<div style="">
+  <div *ngIf="status" style="margin: 2rem;">{{status}}</div>
 
-<div *ngIf="status" style="margin-bottom: 2rem;">{{status}}</div>
+  <div class="row well" style="margin: 2rem">
+    <div class="col-xs-11">
+      <label for="symbols">Symbols:</label>
+      <input type="text" class="form-control" id="symbols" [(ngModel)]="symbolInput" (keyup.enter)="searchSymbols()" placeholder="Enter stock symbols...">
+    </div>
+    <div class="col-xs-1">
+      <button class="btn btn-default glyphicon glyphicon-search" (click)="searchSymbols()" style="margin-top: 24px"></button>
+      <button class="btn btn-default pull-right" (click)="showFilterClicked()" style="margin-top: 24px"><span class="glyphicon glyphicon-filter"></span></button>
+    </div>
+  </div>
 
-<form #f="ngForm" (ngSubmit)="search()">
-  <p>
-    <label>Symbols:</label>
-    <input type="text"
-           [(ngModel)]="searchParams.symbols"
-           [ngModelOptions]="{standalone: true}"/>
-           <!--required/>-->
-  </p>
-  <p>
-    <label>Historic:</label>
-    <input type="checkbox"
-           [(ngModel)]="searchParams.historic"
-           [ngModelOptions]="{standalone: true}"/>
-  </p>
-  <p>
-    <label>Delete existing:</label>
-    <input type="checkbox"
-           [(ngModel)]="searchParams.delete_existing"
-           [ngModelOptions]="{standalone: true}"/>
-  </p>
-  <p>
-    <button type="submit" [disabled]="!f.valid">Submit</button>
-  </p>
-</form>
+  <!--Filters panel-->
+  <div id="filterPanel" [class.hide]="!showFilter">
+    <div class="row well" style="margin: 2rem">
+      <div class="col-xs-2">
+        <label for="maxDelta">Max Delta:</label>
+        <input type="text" class="form-control" id="maxDelta" [(ngModel)]="maxDelta" (change)="filterChanged()">
+      </div>
 
-<div>
-  <stock-datum *ngFor="let datum of stockDatums" [stockDatum]="datum">
-  </stock-datum>
+      <div class="col-xs-2">
+        <label for="minSpreadCredit">Min Spread Credit:</label>
+        <input type="text" class="form-control" id="minSpreadCredit" [(ngModel)]="minSpreadCredit" (change)="filterChanged()">
+      </div>
+
+      <div class="col-xs-2">
+        <label for="maxSpreadMargin">Max Spread Margin:</label>
+        <input type="text" class="form-control" id="maxSpreadMargin" [(ngModel)]="maxSpreadMargin" (change)="filterChanged()">
+      </div>
+
+      <div class="col-xs-2">
+        <label for="maxSpreads">Max Spreads:</label>
+        <input type="text" class="form-control" id="maxSpreads"[(ngModel)]="maxSpreads">
+      </div>
+    </div>
+
+    <div class="row well" style="margin: 2rem">
+      <div class="col-xs-2">
+        <label for="minCondorCredit">Min Condor Credit:</label>
+        <input type="text" class="form-control" id="minCondorCredit" [(ngModel)]="minCondorCredit" (change)="filterChanged()">
+      </div>
+
+      <div class="col-xs-2">
+        <label for="minCondorRoc">Min Condor ROC:</label>
+        <input type="text" class="form-control" id="minCondorRoc"[(ngModel)]="minCondorRoc" (change)="filterChanged()">
+      </div>
+
+      <div class="col-xs-2">
+        <label for="maxCondors">Max Condors:</label>
+        <input type="text" class="form-control" id="maxCondors"[(ngModel)]="maxCondors">
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 2rem">
+    <div class="col-xs-12" style="margin: 1rem">
+      <ul class="nav nav-tabs">
+        <li *ngFor="let symbol of getTabSymbols()">
+          <a (click)="selectTab(symbol)" [class.active]="activeSymbol == symbol">{{symbol}}</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div *ngFor="let symbol of getSymbols()" id="{{symbol}}" class="tab-pane fade in" [class.active]="activeSymbol == symbol">
+          <h3 style="margin-top: 4rem; text-align: center;">{{symbol}}</h3>
+
+          <!--<h4 style="text-align: center;">Stock Data</h4>-->
+          <stock-datum [stockDatum]="getStockDatum(symbol)"></stock-datum>
+
+          <div *ngIf="filteredCondors[symbol]?.length">
+            <h4 style="margin-top: 2rem; text-align: center">Condors</h4>
+            <condor [condors]="filteredCondors[symbol]" [maxCondors]="maxCondors"></condor>
+          </div>
+
+          <div *ngIf="filteredCallSpreads[symbol]?.length">
+            <h4 style="margin-top: 2rem; text-align: center">Call Spreads</h4>
+            <spread [spreads]="filteredCallSpreads[symbol]" [maxSpreads]="maxSpreads"></spread>
+          </div>
+
+          <div *ngIf="filteredPutSpreads[symbol]?.length">
+            <h4 style="margin-top: 2rem; text-align: center">Put Spreads</h4>
+            <spread [spreads]="filteredPutSpreads[symbol]" [maxSpreads]="maxSpreads"></spread>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+
+<!--&lt;!&ndash;<div>&ndash;&gt;-->
+  <!--<h3>Stock Option Data</h3>-->
+  <!--<stock-option-datum *ngFor="let datum of getStockOptionDatums()" [stockOptionDatum]="datum">-->
+  <!--</stock-option-datum>-->
+<!--</div>-->
+
 

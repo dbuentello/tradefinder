@@ -19,43 +19,78 @@ module AmeritradeHelper
       else
         puts "*** getting stock #{symbol} from server"
         data = self.get_stock_quote(symbol)
+        puts "*** got stock datas: #{data}"
         stock_datas = [data] if !data.nil?
       end
 
       unless stock_datas.nil?
         # puts "*** got stocks #{stock_datas}"
-        stock_datas.each do |stock_data|
-          stock = self.save_stock(symbol, stock_data, params[:delete_existing])
-          stocks.push(stock) if stock
+
+        if params[:delete_existing]
+          stock_datas.each do |stock_data|
+            self.delete_stock_quotes_on_date(symbol, stock_data[:date]) if !delete_existing_days_quotes.nil?
+          end
         end
+
+        Stock.import stock_datas
+        stocks = stocks + Stock.where(symbol: symbol)
       end
     else
       stocks.push(stock)
     end
 
-    # puts "*** returning stocks: #{stocks}"
+    puts "*** returning stocks: #{stocks}"
     return stocks
   end
 
-  def self.get_stock_option_symbol(symbol, historic, params, session_id)
+  def self.get_stock_option_symbol(symbol, historic, minDays, maxDays)
+    # Get expiration months from min/max days
+    expirations = []
+    if !minDays.nil? && !maxDays.nil?
+      minDays = minDays.to_i
+      maxDays = maxDays.to_i
+      minDate = (Date.today + minDays.day)
+      maxDate = (Date.today + maxDays.day)
+      minDateMonth = minDate.month.to_i
+      maxDateMonth = maxDate.month.to_i
+
+      (minDateMonth...maxDateMonth + 1).each do |month|
+        if(month == Date.today.month && (Date.today.cweek < 3 || (Date.today.cweek == 3 && Date.today.wday <= 5)))
+          next
+        end
+
+        # TODO - handle year rolling over!!!
+        str = "#{minDate.year}#{(month < 10 ? '0' : '')}#{month}"
+        expirations.push(str) if !expirations.include?(str)
+      end
+    else
+      expirations.push('A')
+    end
+    puts "*** exp strs: #{expirations}"
+
+
     # Try to use a cached entry
-    # stock = self.get_cached_for_symbol(symbol) if !historic
-    # puts "*** using existing stock option for #{symbol}" if !stock.nil? and !historic
-
-    options = self.get_stock_option_quote(symbol)
-
-    options.each do |option|
-      self.delete_stock_options(symbol)
+    options = expirations.include?('A') ? [] : self.get_cached_options_for_symbol(symbol, expirations)
+    if(options.size > 0)
+      puts "*** using existing stock options for #{symbol}"
+      return options
     end
 
-    options.each do |option|
-      self.save_stock_option(option)
+    OptionQueryCache.where(symbol: symbol).delete_all
+    OptionQueryCache.new({ :symbol => symbol, :expirations => expirations }).save
+    AmeritradeHelper.delete_stock_options(symbol)
+
+    options = []
+    expirations.each do |expYYYYMM|
+      options = options + self.get_stock_option_quote(symbol, expYYYYMM)
     end
+
+    StockOption.import options
 
     return options
   end
 
-  def self.get_volatility(symbol, params, session_id)
+  def self.load_volatility(symbol, params, session_id)
     # Figure out which vol dates that we need
     query_dates = []
     gap_dates = self.get_vol_gap_dates(symbol)
@@ -68,7 +103,7 @@ module AmeritradeHelper
       end
     end
 
-    puts "query dates #{query_dates}"
+    puts "*** query dates #{query_dates}"
 
     # Query the API for any vol dates that we don't have
     new_vols = []
@@ -81,15 +116,48 @@ module AmeritradeHelper
 
     # Save the queried vol values to the DB
     new_vols.each do |vol|
-      self.save_volatility(symbol, vol)
+      self.delete_volatility(symbol, vol)
       # puts "#{vol.to_s}"
     end
 
+    Volatility.import new_vols
+
     # Return all vols for the last year
-    return Volatility
+    # return Volatility
+    #            .where(symbol: symbol)
+    #            .where("date >= ?", (Date.today - 365))
+    #            .order(date: :desc)
+    #
+    # return self.calculate_ivr(symbol)
+  end
+
+  def self.calculate_ivr(symbol)
+    max = Volatility
+              .where(symbol: symbol)
+              .where("vol >= 0")
+              .where("date >= ?", (Date.today - 365))
+              .order(:vol).last
+    min = Volatility
+              .where(symbol: symbol)
+              .where("vol >= 0")
+              .where("date >= ?", (Date.today - 365))
+              .order(:vol).first
+    last = Volatility
                .where(symbol: symbol)
-               .where("date >= ?", (Date.today - 365))
-               .order(date: :desc)
+               .order(:date).last
+
+    ivr = (last.vol - min.vol) / (max.vol - min.vol)
+    last_ivr_date = last.date.to_date
+
+    return {
+        :ivr => ivr,
+        :max_iv => max.vol,
+        :max_iv_date => max.date.to_date,
+        :min_iv => min.vol,
+        :min_iv_date => min.date.to_date,
+        :last_iv => last.vol,
+        :last_iv_date => last_ivr_date
+    }
   end
 
   def self.login(params)
@@ -133,6 +201,12 @@ module AmeritradeHelper
         :session_id => @session_id,
         :login_date => !@session_id.nil? ? DateTime.now : nil
     }
+  end
+
+  def self.delete_stock_options(symbol)
+    StockOption
+        .where(symbol: symbol)
+        .delete_all
   end
 
   private
@@ -203,11 +277,12 @@ module AmeritradeHelper
     return self.parse_historic_quotes(bytes)
   end
 
-  def self.get_stock_option_quote(symbol)
+  def self.get_stock_option_quote(symbol, expYYYYMM)
     puts "*** getting stock option quote for #{symbol}"
-    return nil if @session_id.nil? || symbol.nil?
+    return [] if @session_id.nil? || symbol.nil?
 
-    url = "https://apis.tdameritrade.com/apps/200/OptionChain;jsessionid=#{@session_id}?source=SMAR&symbol=#{symbol}&quotes=true&expire=A"
+    expYYYYMM = 'A' if expYYYYMM.nil?
+    url = "https://apis.tdameritrade.com/apps/200/OptionChain;jsessionid=#{@session_id}?source=SMAR&symbol=#{symbol}&quotes=true&expire=#{expYYYYMM}"
     puts "*** url: #{url}"
 
     stock_uri = URI.parse(url)
@@ -320,7 +395,7 @@ module AmeritradeHelper
     # puts "response: #{stock_xml_doc}"
 
     result = get_xml_value(stock_xml_doc, "//amtd/result")
-    return nil if result.nil? || result != "OK"
+    return options if result.nil? || result != "OK"
 
     symbol = get_xml_value(stock_xml_doc, "//amtd/option-chain-results/symbol")
     # puts "#{symbol}"
@@ -335,11 +410,13 @@ module AmeritradeHelper
       option_date.xpath('option-strike').each do |strike|
         put = self.parse_quote_details(strike, 'put/')
         put[:symbol] = symbol
+        put[:call] = false
         put[:daysToExpiration] = option_date.xpath('days-to-expiration').text
         put[:expiration] = option_date.xpath('date').text
 
         call = self.parse_quote_details(strike, 'call/')
         call[:symbol] = symbol
+        call[:call] = true
         call[:daysToExpiration] = option_date.xpath('days-to-expiration').text
         call[:expiration] = option_date.xpath('date').text
 
@@ -465,18 +542,6 @@ module AmeritradeHelper
   # DB QUERIES
   #
 
-  def self.save_stock(symbol, stock_data, delete_existing_days_quotes)
-    unless stock_data.nil? || stock_data[:symbol].nil?
-      # puts "*** saving stock data: #{stock_data} to DB"
-      self.delete_stock_quotes_on_date(symbol, stock_data[:date]) if !delete_existing_days_quotes.nil?
-      stock = Stock.new(stock_data)
-      stock.save
-      return stock
-    end
-
-    return nil
-  end
-
   def self.delete_stock_quotes_on_date(symbol, date)
     # puts "*** deleting symbol: #{symbol} for date: #{date}"
     # date = DateTime.parse(date_str)
@@ -484,8 +549,9 @@ module AmeritradeHelper
         .where(symbol: symbol)
         .where("date >= ?", date.beginning_of_day)
         .where("date <= ?", date.end_of_day)
-        .destroy_all
+        .delete_all
   end
+
 
   def self.get_cached_for_symbol(symbol)
     existings = Stock.where(symbol: symbol).order(created_at: :desc)
@@ -497,17 +563,17 @@ module AmeritradeHelper
       now = DateTime.now
 
       diff_minutes = (now.to_f - date.to_f) / 60
-      # puts "*** comparing: #{now.to_s} and #{date.to_s}"
-      # puts "*** diff in minutes: #{diff_minutes}"
+      puts "*** comparing: #{now.to_s} and #{date.to_s}"
+      puts "*** diff in minutes: #{diff_minutes}"
 
       use_existing = false
       # if diff_minutes < Rails.application.config.max_cache_age
-      # if same_day(now, date) && date.hour > 16
-      #   use_existing = true
-      # end
+      if same_day(now, date) && date.hour > 16
+        use_existing = true
+      end
 
       if use_existing
-        # puts "Using cached stock #{existing} created at: #{created_at} / #{date.to_s}"
+        puts "*** using cached stock #{existing} created at: #{created_at} / #{date.to_s}"
         return existing;
       end
     end
@@ -516,36 +582,41 @@ module AmeritradeHelper
     return nil
   end
 
-  def self.save_stock_option(option_data)
-    unless option_data.nil?
-      option = StockOption.new(option_data)
-      option.save
-      return option
+  def self.get_cached_options_for_symbol(symbol, expirations)
+    # only return cached options if options were found for each expiration month
+    puts "*** getting cached options #{symbol} #{expirations}"
+
+    cache = OptionQueryCache.find_by(symbol: symbol)
+    if !cache.nil?
+      cache_exps = eval(cache.expirations)
+      puts "*** comparing option cache exps: #{cache_exps} #{expirations}"
+      if cache_exps == expirations
+        now = DateTime.now
+        puts "*** option cache exps are equal"
+
+        if same_day(now, cache.created_at)
+          if now.hour > 16 || (now.minute - cache.created_at.min) <= 5
+            return StockOption.where(symbol: symbol)
+          else
+            puts "*** option cache over 5 minutes old"
+          end
+        else
+          puts "*** option cache not same day"
+        end
+      end
     end
 
-    return nil
+    return []
   end
 
-  def self.delete_stock_options(symbol)
-    StockOption
-        .where(symbol: symbol)
-        .destroy_all
-  end
-
-  def self.save_volatility(symbol, vol_data)
+  def self.delete_volatility(symbol, vol_data)
     unless vol_data.nil?
       Volatility
           .where(symbol: symbol)
           .where("date >= ?", vol_data[:date].beginning_of_day)
           .where("date <= ?", vol_data[:date].end_of_day)
-          .destroy_all
-
-      vol = Volatility.new(vol_data)
-      vol.save
-      return vol
+          .delete_all
     end
-
-    return nil
   end
 
   def self.get_vol_gap_dates(symbol)
@@ -558,7 +629,7 @@ module AmeritradeHelper
                      .where("date <= ?", wd.end_of_day)
       gap_dates.push(wd) if existing.nil? || existing.length == 0
     end
-    # puts "gap dates: #{gap_dates}"
+    puts "*** gap dates: #{gap_dates}"
     return gap_dates
   end
 
@@ -590,13 +661,14 @@ module AmeritradeHelper
   end
 
   def self.same_day(date1, date2)
+    puts "*** same day check comparing: #{date1} #{date2}"
     return date1.year == date2.year &&
         date1.mon == date2.mon &&
         date1.mday == date2.mday
   end
 
   def self.get_prev_year_weekdays()
-    date = Date.today
+    date = Date.today - 1
     weekdays = []
 
     365.times do |i|

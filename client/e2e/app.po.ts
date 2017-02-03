@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class TradefinderAppPage {
+export class ClientPage {
   navigateTo() {
     return browser.get('/');
   }

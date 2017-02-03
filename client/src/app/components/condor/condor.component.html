@@ -1,0 +1,21 @@
+<div style="margin:1rem">
+  <table class="table table-striped table-bordered table-hover table-condense">
+    <tr>
+      <th>Strikes</th>
+      <th>Deltas</th>
+      <th>Credit</th>
+      <th>ROC</th>
+      <th>Max Loss</th>
+      <th>Margin</th>
+    </tr>
+    <tr *ngFor="let condor of condors | slice:0:maxCondors">
+      <td class="center"><span>{{condor.strikeStr}}</span></td>
+      <td class="center"><span>{{condor.deltaStr}}</span></td>
+      <td class="right"><span>{{condor.credit | currency:'USD':true:'1.2-2'}}</span></td>
+      <td class="right"><span>{{condor.roc | number : '1.2-2'}}%</span></td>
+      <td class="right"><span>{{condor.maxLoss | currency:'USD':true:'1.2-2'}}</span></td>
+      <td class="right"><span>{{condor.putSpread.margin | currency:'USD':true:'1.2-2'}}</span></td>
+      <!--<td><span>: {{condor.}}</span></td>-->
+    </tr>
+  </table>
+</div>
