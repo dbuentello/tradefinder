@@ -22,6 +22,9 @@ export class SpreadComponent implements OnInit {
   @Input()
   maxSpreads: number = 5;
 
+  @Input()
+  selectedSpread: Spread = null;
+
   constructor() {
   }
 

@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-xs-1">
+    <div>Symbol</div>
+    <input type="text" class="form-control" id="symbol" autofocus [(ngModel)]="inputService.position.symbol">
+  </div>
+  <div class="col-xs-1">
+    <div>Action</div>
+    <select class="form-control" [ngModel]="inputService.position.action" (ngModelChange)="actionChange($event)">
+      <option>BTO</option>
+      <option>STO</option>
+      <option>BTC</option>
+      <option>STC</option>
+    </select>
+  </div>
+  <div class="col-xs-1">
+    <div>Action date</div>
+    <input type="text" class="form-control" id="date" [(ngModel)]="inputService.position.actionDate">
+  </div>
+  <div class="col-xs-1">
+    <div>Days to exp</div>
+    <input type="text" class="form-control" id="days" [(ngModel)]="inputService.position.daysToExpiration">
+  </div>
+  <div class="col-xs-1">
+    <div>Strike</div>
+    <input type="text" class="form-control" id="strike" [(ngModel)]="inputService.position.strike">
+  </div>
+  <div class="col-xs-1">
+    <div>Type</div>
+    <select class="form-control" [ngModel]="inputService.position.type" (ngModelChange)="typeChange($event)">
+      <option>CALL</option>
+      <option>PUT</option>
+    </select>
+  </div>
+  <div class="col-xs-1">
+    <div>Price</div>
+    <input type="text" class="form-control" id="price" [(ngModel)]="inputService.position.price">
+  </div>
+  <div class="col-xs-1">
+    <div>Delta</div>
+    <input type="text" class="form-control" id="delta" [(ngModel)]="inputService.position.entryDelta">
+  </div>
+  <div class="col-xs-1">
+    <div>Contracts</div>
+    <input type="text" class="form-control" id="contracts" [(ngModel)]="inputService.position.numContracts">
+  </div>
+  <div class="col-xs-1">
+    <div>Commision</div>
+    <input type="text" class="form-control" id="commision" [(ngModel)]="inputService.position.commission">
+  </div>
+  <div class="col-xs-1">
+  </div>
+  <div class="col-xs-2">
+    <div style="margin-top: 20px" class="pull-right">
+    <button class="btn btn-default" style="margin-right:1rem;" (click)="cancelClicked()"><span>Cancel</span></button>
+    <button class="btn btn-default" (click)="saveClicked()"><span>Save</span></button>
+    </div>
+  </div>
+</div>

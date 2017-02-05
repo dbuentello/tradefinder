@@ -30,26 +30,8 @@ export class Condor {
     this.rocWithComm = ((creditScaled - putComm - callComm) / this.maxLoss) * 100;
     this.rocWithCommAdj = ((creditScaled - (putComm * 2) - callComm) / this.maxLoss) * 100; // ROC with commission after adjusting one side
 
-    let shortStr: string = this.putSpread.shortOption.strike + "";
-    if (!shortStr.endsWith(".5"))
-      shortStr = shortStr.substring(0, shortStr.length - 2);
-    let longStr: string = this.putSpread.longOption.strike + "";
-    if (!longStr.endsWith(".5"))
-      longStr = longStr.substring(0, longStr.length - 2);
-
-    let strikeString: string = longStr + "/" + shortStr;
-
-    shortStr = this.callSpread.shortOption.strike + "";
-    if (!shortStr.endsWith(".5"))
-      shortStr = shortStr.substring(0, shortStr.length - 2);
-    longStr = this.callSpread.longOption.strike + "";
-    if (!longStr.endsWith(".5"))
-      longStr = longStr.substring(0, longStr.length - 2);
-
-    strikeString = strikeString + "  " + shortStr + "/" + longStr;
-
-    this.strikeStr = strikeString;
-    this.deltaStr = this.putSpread.shortOption.delta + " / " + this.callSpread.shortOption.delta;
+    this.strikeStr = this.putSpread.longOption.strike + "/" + this.putSpread.shortOption.strike + " " + this.callSpread.shortOption.strike + "/" + this.callSpread.longOption.strike;
+    this.deltaStr = this.putSpread.shortOption.delta + " /" + this.callSpread.shortOption.delta;
     // this.deltaStr = OptionParser.formatTwoDigits(putSpread.shortOption.delta) + "|" + OptionParser.formatTwoDigits(callSpread.shortOption.delta);
   }
 

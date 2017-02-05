@@ -21,23 +21,26 @@ export class StockOptionDatum {
   vega: number;
   percentFromMarket: number;
   probOTM: number;
+  bidAskWidthPercentage: number;
 
   accept(data: any) {
     this.symbol = data.symbol;
     this.call = data.call;
     this.description = data.description;
-    this.daysToExpiration = data.daysToExpiration;
+    this.daysToExpiration = data.daysToExpiration && parseFloat(data.daysToExpiration);
     this.expiration = data.expiration;
-    this.strike = data.strike;
-    this.last = data.last;
-    this.bid = data.bid;
-    this.ask = data.ask;
-    this.volume = data.volume;
-    this.iv = data.iv;
-    this.delta = data.delta;
-    this.gamma = data.gamma;
-    this.theta = data.theta;
-    this.vega = data.vega;
+    this.strike = data.strike && parseFloat(data.strike);
+    this.last = data.last && parseFloat(data.last);
+    this.bid = data.bid && parseFloat(data.bid);
+    this.ask = data.ask && parseFloat(data.ask);
+    this.volume = data.volume && parseFloat(data.volume);
+    this.iv = data.iv && parseFloat(data.iv);
+    this.delta = data.delta && parseFloat(data.delta);
+    this.gamma = data.gamma && parseFloat(data.gamma);
+    this.theta = data.theta && parseFloat(data.theta);
+    this.vega = data.vega && parseFloat(data.vega);
+
+    this.bidAskWidthPercentage = (this.ask - this.bid) / this.ask;
   }
 
 }

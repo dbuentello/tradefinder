@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import * as _ from "underscore"
 import { Condor } from '../../model/condor'
 
@@ -22,11 +22,24 @@ export class CondorComponent implements OnInit {
   @Input()
   maxCondors: number = 15;
 
+  @Output() selectedItem : EventEmitter<Condor> = new EventEmitter();
+
+  @Input() selectedCondor: Condor = null;
+
   constructor() {
   }
 
   ngOnInit() {
   }
 
+  clicked(condor: Condor) {
+    if(this.selectedCondor && this.selectedCondor == condor) {
+      this.selectedCondor = null;
+      this.selectedItem.emit(null);
+    } else {
+      this.selectedCondor = condor;
+      this.selectedItem.emit(condor);
+    }
+  }
 
 }

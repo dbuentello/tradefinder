@@ -170,9 +170,9 @@ export var AppComponent = (function () {
     AppComponent = __decorate([
         Component({
             selector: 'app-root',
-            templateUrl: './app.component.html',
+            templateUrl: './positions.component.html',
             styleUrls: [
-                './app.component.css',
+                './monitor.component.css',
             ]
         }), 
         __metadata('design:paramtypes', [Http])

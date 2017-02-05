@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202000111) do
+ActiveRecord::Schema.define(version: 20170204051847) do
 
   create_table "option_query_caches", force: :cascade do |t|
     t.string   "symbol"
@@ -65,6 +65,13 @@ ActiveRecord::Schema.define(version: 20170202000111) do
     t.datetime "date"
     t.index ["date"], name: "index_stocks_on_date"
     t.index ["symbol"], name: "index_stocks_on_symbol"
+  end
+
+  create_table "vol_query_caches", force: :cascade do |t|
+    t.string   "symbol"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["symbol"], name: "index_vol_query_caches_on_symbol"
   end
 
   create_table "volatilities", force: :cascade do |t|

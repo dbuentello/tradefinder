@@ -1,0 +1,139 @@
+<div class="pull-right" style="margin-top: 1rem; margin-right: 2rem">{{getCurrentDate()}}</div>
+<h2 style="text-align: center">TradeFinder</h2>
+
+<div style="">
+  <div *ngIf="status" style="position: absolute; top: 3rem; left: 2rem;">{{status}}</div>
+
+  <div class="row well" style="margin: 2rem">
+    <div class="col-xs-10">
+      <label for="symbols">Symbols:</label>
+      <input type="text" class="form-control" id="symbols" autofocus [(ngModel)]="symbolInput" (keyup.enter)="searchSymbols()" placeholder="Enter stock symbols...">
+    </div>
+    <div class="col-xs-1">
+      <label for="maxDelta">Min IVR:</label>
+      <input type="text" class="form-control" id="minIvr" [(ngModel)]="minIvr">
+    </div>
+    <div class="col-xs-1">
+      <button class="btn btn-default glyphicon glyphicon-search" [class.disabled]="loading" (click)="searchSymbols()" style="margin-top: 24px"></button>
+      <button class="btn btn-default pull-right" (click)="showFilterClicked()" style="margin-top: 24px"><span class="glyphicon glyphicon-filter"></span></button>
+    </div>
+  </div>
+
+  <!--Filters panel-->
+  <div id="filterPanel" [class.hide]="!showFilter">
+    <div class="row well" style="margin: 2rem">
+      <div class="col-xs-2">
+        <label for="maxDelta">Max Delta:</label>
+        <input type="text" class="form-control" id="maxDelta" [(ngModel)]="maxDelta" (change)="filterChanged()">
+      </div>
+
+      <div class="col-xs-2">
+        <label for="minSpreadCredit">Min Spread Credit:</label>
+        <input type="text" class="form-control" id="minSpreadCredit" [(ngModel)]="minSpreadCredit" (change)="filterChanged()">
+      </div>
+
+      <div class="col-xs-2">
+        <label for="minSpreadCredit">Max Bid/Ask Spread %:</label>
+        <input type="text" class="form-control" id="maxBidAskPercent" [(ngModel)]="maxBidAskPercent" (change)="filterChanged()">
+      </div>
+
+      <div class="col-xs-2">
+        <label for="maxSpreadMargin">Max Spread Margin:</label>
+        <input type="text" class="form-control" id="maxSpreadMargin" [(ngModel)]="maxSpreadMargin" (change)="filterChanged()">
+      </div>
+
+      <div class="col-xs-2">
+        <label for="maxSpreads">Max Spreads:</label>
+        <input type="text" class="form-control" id="maxSpreads"[(ngModel)]="maxSpreads">
+      </div>
+    </div>
+
+    <div class="row well" style="margin: 2rem">
+      <div class="col-xs-2">
+        <label for="minCondorCredit">Min Condor Credit:</label>
+        <input type="text" class="form-control" id="minCondorCredit" [(ngModel)]="minCondorCredit" (change)="filterChanged()">
+      </div>
+
+      <div class="col-xs-2">
+        <label for="minCondorRoc">Min Condor ROC:</label>
+        <input type="text" class="form-control" id="minCondorRoc"[(ngModel)]="minCondorRoc" (change)="filterChanged()">
+      </div>
+
+      <div class="col-xs-2">
+        <label for="maxCondors">Max Condors:</label>
+        <input type="text" class="form-control" id="maxCondors"[(ngModel)]="maxCondors">
+      </div>
+
+      <div class="col-xs-5">
+      </div>
+
+      <div class="col-xs-1">
+        <button class="btn btn-default glyphicon glyphicon-refresh pull-right" (click)="resetFilters()" style="margin-top: 24px"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 2rem">
+    <div class="col-xs-12" style="margin: 0rem">
+
+      <!--Tabs-->
+      <ul class="nav nav-tabs" style="margin-left: 2rem; margin-right: 2rem; margin-bottom: 4px;">
+        <li *ngFor="let symbol of getTabSymbols()">
+          <a (click)="selectTab(symbol)"
+             [class.active]="activeSymbol == symbol"
+             [class.selected]="activeSymbol == symbol"
+             [class.disabled-tab]="!filteredPutSpreads[symbol]?.length && !filteredCallSpreads[symbol]?.length">
+            {{symbol}}
+          </a>
+        </li>
+      </ul>
+
+      <div class="tab-content" style="padding: 1rem; padding-top: 0px;">
+        <div *ngFor="let symbol of getSymbols()" id="{{symbol}}" class="tab-pane fade in" [class.active]="activeSymbol == symbol">
+          <div *ngIf="!loading" class="well" style="position: relative; margin-bottom: 3rem; margin-left: 1rem; margin-right: 1rem;">
+            <span *ngIf="!showGraph" style="position: absolute;top: 1rem;right: 2rem;font-size: 18px;" class="glyphicon glyphicon-menu-down" (click)="showGraph=true"></span>
+            <span *ngIf="showGraph" style="position: absolute;top: 1rem;right: 2rem;font-size: 18px;" class="glyphicon glyphicon-menu-up" (click)="showGraph=false"></span>
+
+            <h3 style="margin-top: 0; margin-bottom: 0rem; text-align: center;">{{symbol}}</h3>
+
+            <!--Chart-->
+            <div *ngIf="showGraph" style="margin-top: 2rem; text-align: center; position: relative">
+              <img src="{{getGraphUrl(symbol, '1y')}}" style="width: 500px; margin-right: 1rem">
+              <img src="{{getGraphUrl(symbol, '3m')}}" style="width: 500px; margin-right: 1rem">
+              <img src="{{getGraphUrl(symbol, '5d')}}" style="width: 500px">
+              <div style="margin-top: 1rem;"><a href="{{getEarningsUrl(symbol)}}" target="_blank" style="margin-top: 1rem">Earnings</a></div>
+            </div>
+          </div>
+
+          <!--Stock/option data-->
+          <stock-datum [stockDatum]="getStockDatum(symbol)"></stock-datum>
+
+          <div *ngIf="filteredCondors[symbol]?.length">
+            <h4 style="margin-top: 2rem; text-align: center">Condors</h4>
+            <condor [condors]="filteredCondors[symbol]" [maxCondors]="maxCondors" (selectedItem)="condorSelected($event)" [selectedCondor]="selectedCondor"></condor>
+          </div>
+
+          <div *ngIf="filteredPutSpreads[symbol]?.length">
+            <h4 style="margin-top: 2rem; text-align: center">Put Spreads</h4>
+            <spread [spreads]="filteredPutSpreads[symbol]" [maxSpreads]="maxSpreads" [selectedSpread]="selectedPut"></spread>
+          </div>
+
+          <div *ngIf="filteredCallSpreads[symbol]?.length">
+            <h4 style="margin-top: 2rem; text-align: center">Call Spreads</h4>
+            <spread [spreads]="filteredCallSpreads[symbol]" [maxSpreads]="maxSpreads" [selectedSpread]="selectedCall"></spread>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!--&lt;!&ndash;<div>&ndash;&gt;-->
+  <!--<h3>Stock Option Data</h3>-->
+  <!--<stock-option-datum *ngFor="let datum of getStockOptionDatums()" [stockOptionDatum]="datum">-->
+  <!--</stock-option-datum>-->
+<!--</div>-->
+
+

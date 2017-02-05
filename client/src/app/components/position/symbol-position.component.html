@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+  <div class="panel-heading" style="user-select: none" (click)="clicked()">
+    {{symbol}} ({{positions.length}})
+  </div>
+  <div class="panel-body" [class.hide]="!show">
+    <div *ngFor="let position of positions">
+      <position [position]="position"></position>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div style="height: 45px;">
+  <span style="font-weight: bold; font-size: 23px;">Positions</span>
+  <span class="pull-right">
+    <button class="btn btn-default" style="height: 35px;" (click)="showInput()" [class.disabled]="inputService.showInput">
+      <span class="glyphicon glyphicon-plus" style="font-size: 16px;"></span>
+    </button>
+  </span>
+</div>
+
+<div *ngIf="inputService.showInput" class="well">
+  <position-input></position-input>
+</div>
+
+<symbol-position *ngFor="let symbol of getPositionSymbols()" [symbol]="symbol" [positions]="positions[symbol]"></symbol-position>
+

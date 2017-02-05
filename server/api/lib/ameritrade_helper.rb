@@ -91,6 +91,8 @@ module AmeritradeHelper
   end
 
   def self.load_volatility(symbol, params, session_id)
+    return if self.check_vol_query_cache(symbol)
+
     # Figure out which vol dates that we need
     query_dates = []
     gap_dates = self.get_vol_gap_dates(symbol)
@@ -120,6 +122,9 @@ module AmeritradeHelper
       # puts "#{vol.to_s}"
     end
 
+    VolQueryCache.where(symbol: symbol).delete_all
+    VolQueryCache.new({ :symbol => symbol }).save
+
     Volatility.import new_vols
 
     # Return all vols for the last year
@@ -146,18 +151,22 @@ module AmeritradeHelper
                .where(symbol: symbol)
                .order(:date).last
 
-    ivr = (last.vol - min.vol) / (max.vol - min.vol)
-    last_ivr_date = last.date.to_date
+    if !max.nil? && !min.nil? && !last.nil?
+      ivr = (last.vol - min.vol) / (max.vol - min.vol)
+      last_ivr_date = last.date.to_date
 
-    return {
-        :ivr => ivr,
-        :max_iv => max.vol,
-        :max_iv_date => max.date.to_date,
-        :min_iv => min.vol,
-        :min_iv_date => min.date.to_date,
-        :last_iv => last.vol,
-        :last_iv_date => last_ivr_date
-    }
+      return {
+          :ivr => ivr,
+          :max_iv => max.vol,
+          :max_iv_date => max.date.to_date,
+          :min_iv => min.vol,
+          :min_iv_date => min.date.to_date,
+          :last_iv => last.vol,
+          :last_iv_date => last_ivr_date
+      }
+    end
+
+    return {}
   end
 
   def self.login(params)
@@ -301,7 +310,10 @@ module AmeritradeHelper
     return nil if @session_id.nil? || symbol.nil?
 
     # endDate = Date.today.prev_day
-    endDate = gap_date == Date.today ? gap_date.prev_day : gap_date
+
+    # TODO - do I need to query for the previous day???
+    # endDate = gap_date == Date.today ? gap_date.prev_day : gap_date
+    endDate = gap_date
     if(endDate.wday == 0)
       endDate = endDate.prev_day(2)
     elsif(endDate.wday == 1)
@@ -496,7 +508,7 @@ module AmeritradeHelper
 
   def self.parse_volatility_quotes(bytes)
     idx = 0
-    # puts "*** response: #{bytes}"
+    puts "*** response: #{bytes}"
 
     # puts "*** symbol count: #{self.get_integer(bytes[idx,4])}"
     symbol_len = self.get_integer(bytes[idx += 4,2])
@@ -617,6 +629,26 @@ module AmeritradeHelper
           .where("date <= ?", vol_data[:date].end_of_day)
           .delete_all
     end
+  end
+
+  def self.check_vol_query_cache(symbol)
+    puts "*** checking cached vol #{symbol}"
+    cache = VolQueryCache.find_by(symbol: symbol)
+    if !cache.nil?
+      now = DateTime.now
+      if same_day(now, cache.created_at)
+        # if now.hour > 16 || (now.minute - cache.created_at.min) <= 5
+        puts "*** vol cache found"
+        return true
+        # else
+        #   puts "*** vol cache over 5 minutes old"
+        # end
+      else
+        puts "*** vol cache not same day"
+      end
+    end
+
+    return false
   end
 
   def self.get_vol_gap_dates(symbol)

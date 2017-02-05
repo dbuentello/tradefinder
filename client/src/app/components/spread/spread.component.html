@@ -3,24 +3,30 @@
     <tr>
       <th>Strikes</th>
       <th>Strike Width</th>
+      <th>Days</th>
       <th>Delta</th>
       <th>IV</th>
       <th>Credit</th>
+      <th>Short Bid/Ask</th>
+      <th>Long Bid/Ask</th>
       <th>ROC</th>
       <th>POB</th>
       <th>Max Loss</th>
       <th>Margin</th>
     </tr>
     <tr *ngFor="let spread of spreads | slice:0:maxSpreads">
-      <td class="center"><span>{{spread.shortOption.strike | number : '1.0-0'}}/{{spread.longOption.strike | number : '1.0-0'}}</span></td>
-      <td class="center"><span>{{spread.strikeWidth}}</span></td>
-      <td class="center"><span>{{spread.shortOption.delta}}</span></td>
-      <td class="center"><span>{{spread.shortOption.iv}}</span></td>
-      <td class="right"><span>{{spread.credit | currency:'USD':true:'1.2-2'}}</span></td>
-      <td class="right"><span>{{spread.roc | number : '1.2-2'}}%</span></td>
-      <td class="right"><span>{{spread.probOfProfit | number : '1.2-2'}}%</span></td>
-      <td class="right"><span>{{spread.maxLoss | currency:'USD':true:'1.2-2'}}</span></td>
-      <td class="right"><span>{{spread.margin | currency:'USD':true:'1.2-2'}}</span></td>
+      <td [class.selected]="selectedSpread == spread" class="center"><span>{{spread.shortOption.strike | number : '1.0-1'}}/{{spread.longOption.strike | number : '1.0-1'}}</span></td>
+      <td [class.selected]="selectedSpread == spread" class="center"><span>{{spread.strikeWidth}}</span></td>
+      <td [class.selected]="selectedSpread == spread" class="center"><span>{{spread.shortOption.daysToExpiration}}</span></td>
+      <td [class.selected]="selectedSpread == spread" class="center" style="font-weight: bold"><span>{{spread.shortOption.delta}}</span></td>
+      <td [class.selected]="selectedSpread == spread" class="center"><span>{{spread.shortOption.iv}}</span></td>
+      <td [class.selected]="selectedSpread == spread" class="right"><span>{{spread.credit | currency:'USD':true:'1.2-2'}}</span></td>
+      <td [class.selected]="selectedSpread == spread" class="right"><span>{{spread.shortOption.bid | currency:'USD':true:'1.2-2'}}/{{spread.shortOption.ask | currency:'USD':true:'1.2-2'}} ({{spread.shortOption.bidAskWidthPercentage | percent:'.1'}})</span></td>
+      <td [class.selected]="selectedSpread == spread" class="right"><span>{{spread.longOption.bid | currency:'USD':true:'1.2-2'}}/{{spread.longOption.ask | currency:'USD':true:'1.2-2'}} ({{spread.longOption.bidAskWidthPercentage | percent:'.1'}})</span></td>
+      <td [class.selected]="selectedSpread == spread" class="right" style="font-weight: bold"><span>{{spread.roc | number : '1.2-2'}}%</span></td>
+      <td [class.selected]="selectedSpread == spread" class="right"><span>{{spread.probOfProfit | number : '1.2-2'}}%</span></td>
+      <td [class.selected]="selectedSpread == spread" class="right"><span>{{spread.maxLoss | currency:'USD':true:'1.2-2'}}</span></td>
+      <td [class.selected]="selectedSpread == spread" class="right"><span>{{spread.margin | currency:'USD':true:'1.2-2'}}</span></td>
       <!--<td><span>: {{spread.}}</span></td>-->
     </tr>
   </table>

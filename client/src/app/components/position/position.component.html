@@ -1,0 +1,18 @@
+<div class="row highlight" style="padding: 1rem">
+  <!--<div class="center col-xs-1"><span>{{position.symbol}}</span></div>-->
+  <div class="center col-xs-1"><span>{{position.actionDate}}</span></div>
+  <div class="center col-xs-1"><span>{{position.daysToExpiration}}</span></div>
+  <div class="center col-xs-1"><span>{{position.entryAction}}</span></div>
+  <!--<div class="center col-xs-1"><span>{{actionEnum[position.entryAction]}}</span></div>-->
+  <div class="center col-xs-1"><span>{{position.strike}}</span></div>
+  <div class="center col-xs-1"><span>{{position.type}}</span></div>
+  <!--<div class="center col-xs-1"><span>{{typeEnum[position.type]}}</span></div>-->
+  <div class="center col-xs-1"><span>{{position.price}}</span></div>
+  <div class="center col-xs-1"><span>{{position.entryDelta}}</span></div>
+  <div class="center col-xs-1"><span>{{position.numContracts}}</span></div>
+  <div class="center col-xs-1"><span>{{position.commission}}</span></div>
+  <div class="pull-right">
+    <span class="glyphicon glyphicon-edit" style="margin-right: 1rem" (click)="edit()"></span>
+    <span class="glyphicon glyphicon-remove" (click)="delete()"></span>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="pull-right" style="margin-top: 1rem; margin-right: 2rem">{{getCurrentDate()}}</div>
+<h2 style="text-align: center">Position Monitor</h2>
+
+<div style="">
+  <div *ngIf="status" style="position: absolute; top: 3rem; left: 2rem;">{{status}}</div>
+</div>
+
+<div class="well">
+  <positions></positions>
+</div>
+
+

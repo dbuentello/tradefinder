@@ -9,3 +9,7 @@ table, th, td {
 .right {
   text-align: right;
 }
+
+.selected {
+  background-color: #ADD8E6;
+}

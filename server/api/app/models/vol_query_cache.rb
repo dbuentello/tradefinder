@@ -1,0 +1,2 @@
+class VolQueryCache < ApplicationRecord
+end
