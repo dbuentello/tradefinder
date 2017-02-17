@@ -1,1 +1,7 @@
-<router-outlet></router-outlet>
+<header></header>
+
+<tradefinder [class.hide]="pageService.currentPage != 'tradefinder'"></tradefinder>
+
+<monitor [class.hide]="pageService.currentPage != 'positions'"></monitor>
+
+<!--<router-outlet></router-outlet>-->

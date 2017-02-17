@@ -18,11 +18,15 @@ import { PositionInputComponent } from './components/position/position-input.com
 
 import {OptionDataService} from "./service/option-data.service";
 import {PositionInputStateService} from "./service/position-input-state.service";
+import {CurrentPageService} from "./service/current-page.service";
+import {StatusService} from "./service/status.service";
+import { PositionSummaryComponent } from './components/position/position-summary.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const appRoutes: Routes = [
-  { path: '',    component: TradefinderComponent },
-  { path: 'tradefinder',    component: TradefinderComponent },
-  { path: 'monitor',      component: MonitorComponent },
+  // { path: '',    component: TradefinderComponent },
+  // { path: 'tradefinder',    component: TradefinderComponent },
+  // { path: 'positions',      component: MonitorComponent },
 ];
 
 @NgModule({
@@ -38,6 +42,8 @@ const appRoutes: Routes = [
     PositionComponent,
     SymbolPositionComponent,
     PositionInputComponent,
+    PositionSummaryComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,9 @@ const appRoutes: Routes = [
   ],
   providers: [
     OptionDataService,
-    PositionInputStateService
+    PositionInputStateService,
+    CurrentPageService,
+    StatusService,
   ],
   bootstrap: [AppComponent]
 })

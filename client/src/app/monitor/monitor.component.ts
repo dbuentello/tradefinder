@@ -22,7 +22,6 @@ import {OptionPosition} from "../model/option-position";
 
 export class MonitorComponent implements OnInit {
 
-  status: string = '';
   loading: boolean = false;
 
   constructor(private http: Http) {

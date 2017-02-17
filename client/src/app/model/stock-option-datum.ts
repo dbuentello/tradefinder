@@ -1,5 +1,8 @@
 import {StockDatum} from "./stock-datum";
 
+export const PUT = 'PUT';
+export const CALL = 'CALL';
+
 export class StockOptionDatum {
 
   underlying: StockDatum;
@@ -28,7 +31,7 @@ export class StockOptionDatum {
     this.call = data.call;
     this.description = data.description;
     this.daysToExpiration = data.daysToExpiration && parseFloat(data.daysToExpiration);
-    this.expiration = data.expiration;
+    this.expiration = data.date;
     this.strike = data.strike && parseFloat(data.strike);
     this.last = data.last && parseFloat(data.last);
     this.bid = data.bid && parseFloat(data.bid);
@@ -41,6 +44,10 @@ export class StockOptionDatum {
     this.vega = data.vega && parseFloat(data.vega);
 
     this.bidAskWidthPercentage = (this.ask - this.bid) / this.ask;
+  }
+
+  public getTypeString() {
+    return this.call ? 'CALL' : 'PUT';
   }
 
 }

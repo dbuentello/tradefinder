@@ -1,10 +1,27 @@
 <div class="panel panel-default">
-  <div class="panel-heading" style="user-select: none" (click)="clicked()">
+  <div class="panel-heading header" style="user-select: none" (click)="clicked()">
     {{symbol}} ({{positions.length}})
   </div>
   <div class="panel-body" [class.hide]="!show">
+    <div class="row" style="padding: 1rem">
+      <div class="header col-xs-1"><span>Entry Action</span></div>
+      <div class="header col-xs-1"><span>Entry Date</span></div>
+      <div class="header col-xs-1"><span>Expiration</span></div>
+      <div class="header col-xs-1"><span>Strike</span></div>
+      <div class="header col-xs-1"><span>Type</span></div>
+      <div class="header col-xs-1"><span>Price</span></div>
+      <div class="header col-xs-1"><span>Entry Delta</span></div>
+      <div class="header col-xs-1"><span>Contracts</span></div>
+      <div class="header col-xs-1"><span>Commision</span></div>
+      <div class="header col-xs-1"><span>Closing Date</span></div>
+      <div class="header col-xs-1"><span>Closing Price</span></div>
+    </div>
     <div *ngFor="let position of positions">
       <position [position]="position"></position>
+    </div>
+
+    <div [class.hide]="!selectedPositions().length" class="well" style="margin-top: 2rem; margin-bottom: 0rem">
+      <position-summary [positions]="selectedPositions()"></position-summary>
     </div>
   </div>
 </div>

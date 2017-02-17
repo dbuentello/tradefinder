@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204051847) do
+ActiveRecord::Schema.define(version: 20170208040227) do
 
   create_table "option_query_caches", force: :cascade do |t|
     t.string   "symbol"
@@ -42,8 +42,9 @@ ActiveRecord::Schema.define(version: 20170204051847) do
     t.datetime "expiration"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "date"
+    t.index ["date"], name: "index_stock_options_on_date"
     t.index ["symbol"], name: "index_stock_options_on_symbol"
-    t.index [nil], name: "index_stock_options_on_date"
   end
 
   create_table "stocks", force: :cascade do |t|

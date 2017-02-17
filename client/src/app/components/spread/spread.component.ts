@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import * as _ from "underscore"
 import { Spread } from '../../model/spread'
 
@@ -25,11 +25,21 @@ export class SpreadComponent implements OnInit {
   @Input()
   selectedSpread: Spread = null;
 
+  @Output() selectedItem : EventEmitter<Spread> = new EventEmitter();
+
   constructor() {
   }
 
   ngOnInit() {
   }
 
-
+  clicked(spread: Spread) {
+    if(this.selectedSpread && this.selectedSpread == spread) {
+      this.selectedSpread = null;
+      this.selectedItem.emit(null);
+    } else {
+      this.selectedSpread = spread;
+      this.selectedItem.emit(spread);
+    }
+  }
 }

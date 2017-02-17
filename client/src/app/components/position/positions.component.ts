@@ -47,7 +47,7 @@ export class PositionsComponent implements OnInit {
 
   inputCanceled() {
     this.inputService.showInput = false;
-    this.inputService.position = null;
+    this.inputService.positions = [];
   }
 
   // inputSaved(newPosition: OptionPosition) {
@@ -65,7 +65,7 @@ export class PositionsComponent implements OnInit {
   // }
 
   showInput() {
-    this.inputService.position = new OptionPosition();
+    this.inputService.positions.push(new OptionPosition());
     this.inputService.showInput = true;
   }
 

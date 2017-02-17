@@ -1,0 +1,19 @@
+.summary-row {
+  margin: 2px;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.heavy-bold {
+  font-weight: 600;
+}
+
+.bottom-line {
+  border-style: solid;
+  border-color: #ddd;
+  border-width: 0px;
+  border-bottom-width: 1px;
+  margin-bottom: 5px;
+}

@@ -26,8 +26,7 @@ export class PositionComponent implements OnInit {
   }
 
   edit() {
-    // this.optionService.updatePosition(this.position);
-    this.inputService.position = this.position;
+    this.inputService.addPosition(this.position);
     this.inputService.showInput = true;
   }
 

@@ -1,0 +1,129 @@
+<div class="row">
+  <div class="col-xs-6">
+    <div class="panel panel-default">
+      <div class="panel-heading header bold" style="user-select: none; font-size: 16px;">
+        Position Info
+      </div>
+
+      <div class="panel-body">
+        <div class="row bottom-line" style="margin: 0rem; margin-bottom: 5px;">
+          <div class="bold" style="text-align: center; font-size: 15px">Stock</div>
+        </div>
+        <div class="row" style="margin: 0rem;">
+          <div class="col-xs-3 bold">Price</div>
+          <div class="col-xs-3">{{optionService.stockDatums[getSymbol()]?.last | currency:'USD':true:'1.2-2'}}</div>
+          <div class="col-xs-3 bold">Change</div>
+          <div class="col-xs-3">{{optionService.stockDatums[getSymbol()]?.percentChange}}%</div>
+        </div>
+
+        <div class="row bottom-line" style="margin: 0; margin-top: 2rem; margin-bottom: 5px;">
+          <div class="bold" style="text-align: center; font-size: 15px">Options</div>
+        </div>
+
+        <div class="row" style="margin: 0;">
+          <div class="col-xs-3 bold">Description</div>
+          <div class="col-xs-2 bold">Days</div>
+          <div class="col-xs-2 bold">Delta</div>
+          <div class="col-xs-3 bold">Bid / Ask</div>
+          <div class="col-xs-1 bold">Last</div>
+        </div>
+
+        <div *ngFor="let position of positions">
+          <div class="row" style="margin: 0">
+            <div class="col-xs-3">{{position.strike}} {{position.type}} ({{position.getActionStr()}})</div>
+            <div class="col-xs-2">{{optionService.getStockOptionDatum(position)?.daysToExpiration}}</div>
+            <div class="col-xs-2">{{getDelta(position) | number : '1.2-2'}}</div>
+            <div class="col-xs-3">
+              <span [class.heavy-bold]="!position.isShort()">
+                {{optionService.getStockOptionDatum(position)?.bid | currency:'USD':true:'1.2-2'}}
+              </span> /
+              <span [class.heavy-bold]="position.isShort()">
+                {{optionService.getStockOptionDatum(position)?.ask | currency:'USD':true:'1.2-2'}}
+              </span>
+            </div>
+            <div class="col-xs-1">
+                {{optionService.getStockOptionDatum(position)?.last | currency:'USD':true:'1.2-2'}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-6">
+    <div class="panel panel-default">
+      <div class="panel-heading header bold" style="user-select: none; font-size: 16px;">
+        Position Status
+      </div>
+      <div class="panel-body">
+        <div class="row" style="margin: 0rem;">
+          <div class="bold bottom-line" style="text-align: center; font-size: 15px">Entry values</div>
+        </div>
+        <div class="row" style="margin: 0rem;">
+          <div class="col-xs-2 bold">Call credit:</div>
+          <div class="col-xs-2">{{getCredit(true) | currency:'USD':true:'1.2-2'}}</div>
+          <div class="col-xs-2 bold">Put credit:</div>
+          <div class="col-xs-2">{{getCredit(false) | currency:'USD':true:'1.2-2'}}</div>
+          <div class="col-xs-2 bold">Combined:</div>
+          <div class="col-xs-2">{{getCredit(true) + getCredit(false)| currency:'USD':true:'1.2-2'}}</div>
+        </div>
+        <div class="row" style="margin: 0rem;">
+          <div class="col-xs-2 bold">Max ROC:</div>
+          <div class="col-xs-2">{{getMaxROC() | number: '1.2-2'}}%</div>
+          <div class="col-xs-2 bold">Margin:</div>
+          <div class="col-xs-2">{{getMarginStr() | currency:'USD':true:'1.2-2'}}</div>
+        </div>
+
+        <div class="row bottom-line" style="margin-top: 2rem; margin-left: 1rem; margin-right: 1rem;">
+          <div class="bold" style="text-align: center; font-size: 15px">Current values</div>
+        </div>
+        <div class="row" style="margin: 0rem;">
+          <div class="col-xs-2 bold">Value:</div>
+          <div class="col-xs-2">{{getSelectedValue() | currency:'USD':true:'1.2-2'}}</div>
+          <div class="col-xs-2 bold">ROC:</div>
+          <div class="col-xs-2">{{getReturn() | number : '1.2-2'}}%</div>
+        </div>
+
+        <div class="row bottom-line" style="margin-top: 2rem; margin-left: 1rem; margin-right: 1rem;">
+          <div class="bold" style="text-align: center; font-size: 15px">Greeks</div>
+        </div>
+        <div class="row" style="margin: 0rem;">
+          <div class="col-xs-6" style="padding: 0px">
+            <div class="row" style="margin: 0rem;">
+              <div class="col-xs-3 bold">Delta:</div>
+              <div class="col-xs-3">{{getSelectedDelta() | number : '1.2-2'}}</div>
+              <div class="col-xs-3 bold">Gamma:</div>
+              <div class="col-xs-3">{{getSelectedGamma() | number : '1.2-2'}}</div>
+            </div>
+          </div>
+          <div class="col-xs-6" style="padding: 0px">
+            <div class="row" style="margin: 0rem;">
+              <div class="col-xs-3 bold">Theta:</div>
+              <div class="col-xs-3">{{getSelectedTheta() | number : '1.2-2'}}</div>
+              <div class="col-xs-3 bold">Vega:</div>
+              <div class="col-xs-3">{{getSelectedVega() | number : '1.2-2'}}</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="col-xs-4">-->
+    <!--<div class="panel panel-default">-->
+      <!--<div class="panel-heading header" style="user-select: none; font-size: 16px; font-weight: 500;">-->
+        <!--Adjustment Points-->
+      <!--</div>-->
+      <!--<div class="panel-body">-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="panel panel-default">-->
+      <!--<div class="panel-heading header" style="user-select: none; font-size: 16px; font-weight: 500;">-->
+        <!--Commisions-->
+      <!--</div>-->
+      <!--<div class="panel-body">-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+</div>

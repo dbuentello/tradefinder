@@ -1,18 +1,5 @@
-
-import { StockOptionDatum } from './stock-option-datum';
+import { StockOptionDatum, CALL, PUT } from './stock-option-datum';
 import { Spread } from './spread';
-
-// export enum OptionType {
-//   CALL,
-//   PUT
-// }
-//
-// export enum OptionAction {
-//   STO,
-//   STC,
-//   BTO,
-//   BTC,
-// }
 
 export class OptionPosition {
 
@@ -22,29 +9,38 @@ export class OptionPosition {
   symbol: string;
   open: boolean;
   actionDate: string;
-  daysToExpiration: number;
+  // daysToExpiration: number;
+  expiration: string;
 
   price: number;
-  // _entryAction: OptionAction;
   entryAction: string;
+  closingAction: string;
   commission: number;
   numContracts: number;
 
   strike: number;
-  // type: OptionType;
   type: string;
   entryDelta: number;
+
+  closingPrice: number;
+  closingDate: string;
+
+  selected: boolean = false;
 
   constructor() {
     this.id = OptionPosition.uniqueId++;
   }
 
-  // set entryAction(action) {
-  //   this._entryAction = action;
-  // }
+  isCall(): boolean {
+    return this.type && this.type.toUpperCase() == CALL;
+  }
 
-  // get entryAction() {
-  //   return this._entryAction;
-  // }
+  getActionStr(): string {
+    return this.isShort() ? 'Short' : 'Long';
+  }
+
+  isShort() {
+    return this.entryAction == 'STO';
+  }
 
 }

@@ -1,0 +1,7 @@
+.top-line {
+  border-style: solid;
+  border-color: #ddd;
+  border-width: 0px;
+  border-top-width: 1px;
+  padding-top: 10px;
+}

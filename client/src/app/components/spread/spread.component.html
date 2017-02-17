@@ -14,7 +14,7 @@
       <th>Max Loss</th>
       <th>Margin</th>
     </tr>
-    <tr *ngFor="let spread of spreads | slice:0:maxSpreads">
+    <tr *ngFor="let spread of spreads | slice:0:maxSpreads" (click)="clicked(spread)">
       <td [class.selected]="selectedSpread == spread" class="center"><span>{{spread.shortOption.strike | number : '1.0-1'}}/{{spread.longOption.strike | number : '1.0-1'}}</span></td>
       <td [class.selected]="selectedSpread == spread" class="center"><span>{{spread.strikeWidth}}</span></td>
       <td [class.selected]="selectedSpread == spread" class="center"><span>{{spread.shortOption.daysToExpiration}}</span></td>

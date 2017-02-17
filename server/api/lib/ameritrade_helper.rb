@@ -416,6 +416,7 @@ module AmeritradeHelper
       next if option_date.xpath('expiration-type').text != 'R'
 
       # puts "  #{option_date.xpath('date').text}"
+      date = option_date.xpath('date').text
       # puts "  #{option_date.xpath('expiration-type').text}"
       # puts "  #{option_date.xpath('days-to-expiration').text}"
 
@@ -423,12 +424,14 @@ module AmeritradeHelper
         put = self.parse_quote_details(strike, 'put/')
         put[:symbol] = symbol
         put[:call] = false
+        put[:date] = date
         put[:daysToExpiration] = option_date.xpath('days-to-expiration').text
         put[:expiration] = option_date.xpath('date').text
 
         call = self.parse_quote_details(strike, 'call/')
         call[:symbol] = symbol
         call[:call] = true
+        call[:date] = date
         call[:daysToExpiration] = option_date.xpath('days-to-expiration').text
         call[:expiration] = option_date.xpath('date').text
 

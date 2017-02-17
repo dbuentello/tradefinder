@@ -12,10 +12,15 @@ export class SymbolPositionComponent implements OnInit {
   @Input()
   symbol: string;
 
-  @Input()
-  positions: OptionPosition[];
+  _positions: OptionPosition[];
+  @Input() set positions(ops: OptionPosition[]) {
+    this._positions = _.sortBy(ops, (op: OptionPosition) => op.strike);
+  }
+  get positions(): OptionPosition[] {
+    return this._positions;
+  }
 
-  show: boolean = true;
+  show: boolean = false;
 
   constructor() { }
 
@@ -24,6 +29,10 @@ export class SymbolPositionComponent implements OnInit {
 
   clicked() {
     this.show = !this.show;
+  }
+
+  selectedPositions(): OptionPosition[] {
+    return this.positions.filter((item: OptionPosition) => item.selected);
   }
 
 }

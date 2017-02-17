@@ -1,0 +1,29 @@
+<div class="row" style="margin: 5px;">
+  <div class="col-xs-3">
+    <div class="pull-left" style="margin-bottom: 1rem; margin-top: 20px;">
+      <!--<div *ngIf="statusService.status" style="position: absolute; top: 0rem; left: 15px; font-style: italic;">{{statusService.status}}</div>-->
+      <div style="font-size: 15px; font-weight: 500;">{{getCurrentDate()}}</div>
+    </div>
+  </div>
+  <div class="col-xs-1">
+  </div>
+  <div class="col-xs-1">
+  </div>
+  <div class="col-xs-1">
+  </div>
+  <div class="col-xs-1">
+  </div>
+  <div class="col-xs-1">
+  </div>
+  <div class="col-xs-1">
+  </div>
+  <div class="col-xs-1">
+    <h4 class="pull-right pointer" [class.selected]="pageService.currentPage == 'tradefinder'" (click)="menuClicked('tradefinder')">TradeFinder</h4>
+  </div>
+  <div class="col-xs-1">
+    <h4 class="pull-right pointer" [class.selected]="pageService.currentPage == 'positions'" (click)="menuClicked('positions')">Positions</h4>
+  </div>
+  <div class="col-xs-1">
+    <h4 class="pull-right pointer" [class.selected]="pageService.currentPage == 'tradelog'" (click)="menuClicked('tradelog')">Trade Log</h4>
+  </div>
+</div>
